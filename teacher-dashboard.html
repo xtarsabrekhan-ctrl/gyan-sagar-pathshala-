@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teacher Dashboard | Gyan Sagar Pathshala</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+}
+
+body{
+  margin:0;
+  background:#f4f7fb;
+  color:#172238;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  background:linear-gradient(135deg,#071a35,#1559a8);
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+header h2{
+  margin:0;
+}
+
+header p{
+  margin:5px 0 0;
+  font-size:13px;
+  color:#dce9f8;
+}
+
+.logout-btn{
+  background:#ffc400;
+  color:#071a35;
+  padding:10px 18px;
+  border-radius:25px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  width:min(1200px,94%);
+  margin:auto;
+  padding:25px 0 50px;
+}
+
+.welcome{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.welcome h1{
+  margin-top:0;
+  color:#071a35;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:white;
+  padding:18px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,.07);
+}
+
+.number{
+  font-size:28px;
+  font-weight:bold;
+  color:#1559a8;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.menu-card{
+  background:white;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 7px 22px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.25s;
+  text-align:center;
+}
+
+.menu-card:hover{
+  transform:translateY(-5px);
+}
+
+.icon{
+  font-size:40px;
+}
+
+.menu-card h3{
+  color:#071a35;
+  margin-bottom:8px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+  display:none;
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  margin-top:25px;
+}
+
+.section.active{
+  display:block;
+}
+
+/* ================= FORM ================= */
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d6dce5;
+  border-radius:9px;
+  margin:8px 0 15px;
+  font-size:15px;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+/* ================= PASSWORD ================= */
+
+.password-box{
+  position:relative;
+  width:100%;
+}
+
+.password-box input{
+  padding-right:55px;
+}
+
+.eye{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-65%);
+  cursor:pointer;
+  font-size:20px;
+  user-select:none;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  border:none;
+  padding:11px 17px;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:4px;
+}
+
+.green{
+  background:#25a244;
+  color:white;
+}
+
+.orange{
+  background:#f57c00;
+  color:white;
+}
+
+.red{
+  background:#d93025;
+  color:white;
+}
+
+.purple{
+  background:#6a11cb;
+  color:white;
+}
+
+.blue{
+  background:#1559a8;
+  color:white;
+}
+
+.back-btn{
+  background:#071a35;
+  color:white;
+  margin-bottom:15px;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+th,
+td{
+  padding:12px;
+  border-bottom:1px solid #ddd;
+  text-align:left;
+}
+
+th{
+  background:#071a35;
+  color:white;
+}
+
+/* ================= ITEMS ================= */
+
+.item{
+  padding:15px;
+  border:1px solid #e1e6ed;
+  border-radius:10px;
+  margin:12px 0;
+  background:#fafcff;
+}
+
+.question{
+  background:#fff8e1;
+  padding:15px;
+  border-radius:10px;
+  margin:12px 0;
+}
+
+.note{
+  background:#eef7ff;
+  padding:16px;
+  border-radius:12px;
+  margin:12px 0;
+  border-left:5px solid #1559a8;
+}
+
+.timetable-item{
+  background:#f3f9f4;
+  padding:15px;
+  border-radius:10px;
+  margin:10px 0;
+  border-left:5px solid #25a244;
+}
+
+.empty{
+  color:#777;
+  text-align:center;
+  padding:20px;
+}
+
+/* ================= ATTENDANCE ================= */
+
+.attendance-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:12px;
+  border-bottom:1px solid #ddd;
+}
+
+.attendance-row select{
+  width:160px;
+  margin:0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+  .stats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .menu{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .menu{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:520px){
+
+  .stats,
+  .menu{
+    grid-template-columns:1fr;
+  }
+
+  header{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .attendance-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .attendance-row select{
+    width:100%;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div>
+
+<h2>📚 Gyan Sagar Pathshala</h2>
+
+<p>Teacher Management Portal</p>
+
+</div>
+
+<a href="index.html" class="logout-btn" onclick="logout()">
+
+🚪 Logout
+
+</a>
+
+</header>
+
+
+<div class="container">
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+<h1>नमस्ते, Teacher 👋</h1>
+
+<p>
+यहाँ से Students, Attendance, Homework, Notices,
+Free Test, Free Notes और Timetable Manage करें।
+</p>
+
+</div>
+
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+<div class="stat">
+<div class="number" id="studentCount">0</div>
+<div>👨‍🎓 Students</div>
+</div>
+
+<div class="stat">
+<div class="number" id="homeworkCount">0</div>
+<div>📝 Homework</div>
+</div>
+
+<div class="stat">
+<div class="number" id="noticeCount">0</div>
+<div>📢 Notices</div>
+</div>
+
+<div class="stat">
+<div class="number" id="questionCount">0</div>
+<div>❓ Questions</div>
+</div>
+
+<div class="stat">
+<div class="number" id="noteCount">0</div>
+<div>📚 Notes</div>
+</div>
+
+</div>
+
+
+<!-- MENU -->
+
+<div class="menu">
+
+<div class="menu-card" onclick="showSection('students')">
+<div class="icon">➕</div>
+<h3>Add Student</h3>
+<p>नया Student Account बनाएँ</p>
+</div>
+
+<div class="menu-card" onclick="showSection('studentList')">
+<div class="icon">📋</div>
+<h3>Student List</h3>
+<p>सभी Students देखें</p>
+</div>
+
+<div class="menu-card" onclick="showSection('attendance')">
+<div class="icon">📅</div>
+<h3>Attendance</h3>
+<p>Attendance लगाएँ</p>
+</div>
+
+<div class="menu-card" onclick="showSection('homework')">
+<div class="icon">📝</div>
+<h3>Homework</h3>
+<p>Homework Add करें</p>
+</div>
+
+<div class="menu-card" onclick="showSection('notices')">
+<div class="icon">📢</div>
+<h3>Notices</h3>
+<p>Notice Publish करें</p>
+</div>
+
+<div class="menu-card" onclick="showSection('test')">
+<div class="icon">❓</div>
+<h3>Free Test</h3>
+<p>Questions Add करें</p>
+</div>
+
+<div class="menu-card" onclick="showSection('notes')">
+<div class="icon">📚</div>
+<h3>Free Notes</h3>
+<p>Notes और PDF Link दें</p>
+</div>
+
+<div class="menu-card" onclick="showSection('timetable')">
+<div class="icon">🗓️</div>
+<h3>Timetable</h3>
+<p>Class Timetable बनाएँ</p>
+</div>
+
+</div>
+
+
+<!-- ================= ADD STUDENT ================= -->
+
+<div class="section" id="students">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>➕ Add Student</h2>
+
+<input type="text" id="studentName" placeholder="Student Name">
+
+<input type="text" id="studentMobile" placeholder="Mobile Number">
+
+<select id="studentClass">
+
+<option value="">Class चुनें</option>
+<option>Class 9th</option>
+<option>Class 10th</option>
+
+</select>
+
+<input type="email" id="studentEmail" placeholder="Student Email ID">
+
+<div class="password-box">
+
+<input type="password" id="studentPassword"
+placeholder="Student Password">
+
+<span class="eye" onclick="toggleStudentPassword()">👁️</span>
+
+</div>
+
+<button class="green" onclick="addStudent()">
+➕ Add Student
+</button>
+
+</div>
+
+
+<!-- ================= STUDENT LIST ================= -->
+
+<div class="section" id="studentList">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📋 Student List</h2>
+
+<div class="table-wrap">
+<div id="studentListData"></div>
+</div>
+
+</div>
+
+
+<!-- ================= ATTENDANCE ================= -->
+
+<div class="section" id="attendance">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📅 Mark Attendance</h2>
+
+<input type="date" id="attendanceDate">
+
+<div id="attendanceList"></div>
+
+<button class="green" onclick="saveAttendance()">
+💾 Save Attendance
+</button>
+
+</div>
+
+
+<!-- ================= HOMEWORK ================= -->
+
+<div class="section" id="homework">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📝 Add Homework</h2>
+
+<input type="text" id="homeworkSubject" placeholder="Subject">
+
+<textarea id="homeworkText"
+placeholder="Homework लिखें"></textarea>
+
+<input type="date" id="homeworkDate">
+
+<button class="purple" onclick="addHomework()">
+➕ Add Homework
+</button>
+
+<hr>
+
+<h3>📚 Homework List</h3>
+
+<div id="homeworkList"></div>
+
+</div>
+
+
+<!-- ================= NOTICES ================= -->
+
+<div class="section" id="notices">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📢 Add Notice</h2>
+
+<input type="text" id="noticeTitle" placeholder="Notice Title">
+
+<textarea id="noticeText"
+placeholder="Notice लिखें"></textarea>
+
+<button class="orange" onclick="addNotice()">
+📢 Publish Notice
+</button>
+
+<hr>
+
+<h3>Latest Notices</h3>
+
+<div id="noticeList"></div>
+
+</div>
+
+
+<!-- ================= FREE TEST ================= -->
+
+<div class="section" id="test">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📝 Free Test - Question Add</h2>
+
+<input type="text" id="testQuestion" placeholder="Question लिखें">
+
+<input type="text" id="optionA" placeholder="Option A">
+
+<input type="text" id="optionB" placeholder="Option B">
+
+<input type="text" id="optionC" placeholder="Option C">
+
+<input type="text" id="optionD" placeholder="Option D">
+
+<select id="correctAnswer">
+
+<option value="">Correct Answer चुनें</option>
+<option value="A">Option A</option>
+<option value="B">Option B</option>
+<option value="C">Option C</option>
+<option value="D">Option D</option>
+
+</select>
+
+<button class="purple" onclick="addQuestion()">
+➕ Add Question
+</button>
+
+<hr>
+
+<h3>❓ Added Questions</h3>
+
+<div id="questionList"></div>
+
+</div>
+
+
+<!-- ================= FREE NOTES ================= -->
+
+<div class="section" id="notes">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>📚 Add Free Notes</h2>
+
+<input type="text" id="noteTitle"
+placeholder="Notes Title">
+
+<input type="text" id="noteSubject"
+placeholder="Subject">
+
+<select id="noteClass">
+
+<option value="">Class चुनें</option>
+<option>Class 9th</option>
+<option>Class 10th</option>
+<option>All Classes</option>
+
+</select>
+
+<textarea id="noteContent"
+placeholder="Notes का Content / Description लिखें"></textarea>
+
+<input type="url" id="noteLink"
+placeholder="PDF / Google Drive / Website Link (Optional)">
+
+<button class="blue" onclick="addNote()">
+📚 Publish Free Note
+</button>
+
+<hr>
+
+<h3>📖 Published Notes</h3>
+
+<div id="notesList"></div>
+
+</div>
+
+
+<!-- ================= TIMETABLE ================= -->
+
+<div class="section" id="timetable">
+
+<button class="back-btn" onclick="closeSections()">← Back</button>
+
+<h2>🗓️ Add Timetable</h2>
+
+<select id="timeClass">
+
+<option value="">Class चुनें</option>
+<option>Class 9th</option>
+<option>Class 10th</option>
+
+</select>
+
+<select id="timeDay">
+
+<option value="">Day चुनें</option>
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+<option>Saturday</option>
+<option>Sunday</option>
+
+</select>
+
+<input type="time" id="timeStart">
+
+<input type="time" id="timeEnd">
+
+<input type="text" id="timeSubject"
+placeholder="Subject / Class Name">
+
+<input type="text" id="timeTeacher"
+placeholder="Teacher Name (Optional)">
+
+<button class="green" onclick="addTimetable()">
+➕ Add Timetable
+</button>
+
+<hr>
+
+<h3>🗓️ Published Timetable</h3>
+
+<div id="timetableList"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* ================= LOAD DATA ================= */
+
+let students =
+JSON.parse(localStorage.getItem("gspStudents")) || [];
+
+let homework =
+JSON.parse(localStorage.getItem("gspHomework")) || [];
+
+let notices =
+JSON.parse(localStorage.getItem("gspNotices")) || [];
+
+let questions =
+JSON.parse(localStorage.getItem("gspQuestions")) || [];
+
+let notes =
+JSON.parse(localStorage.getItem("gspNotes")) || [];
+
+let timetable =
+JSON.parse(localStorage.getItem("gspTimetable")) || [];
+
+
+/* ================= SHOW SECTION ================= */
+
+function showSection(id){
+
+  closeSections();
+
+  document.getElementById(id).classList.add("active");
+
+  if(id==="studentList"){
+    displayStudents();
+  }
+
+  if(id==="attendance"){
+    displayAttendance();
+  }
+
+  if(id==="homework"){
+    displayHomework();
+  }
+
+  if(id==="notices"){
+    displayNotices();
+  }
+
+  if(id==="test"){
+    displayQuestions();
+  }
+
+  if(id==="notes"){
+    displayNotes();
+  }
+
+  if(id==="timetable"){
+    displayTimetable();
+  }
+
+}
+
+function closeSections(){
+
+  document.querySelectorAll(".section")
+  .forEach(function(section){
+
+    section.classList.remove("active");
+
+  });
+
+}
+
+
+/* ================= PASSWORD SHOW/HIDE ================= */
+
+function toggleStudentPassword(){
+
+  let password =
+  document.getElementById("studentPassword");
+
+  let eye =
+  document.querySelector("#students .eye");
+
+  if(password.type==="password"){
+
+    password.type="text";
+    eye.innerHTML="🙈";
+
+  }else{
+
+    password.type="password";
+    eye.innerHTML="👁️";
+
+  }
+
+}
+
+
+/* ================= ADD STUDENT ================= */
+
+function addStudent(){
+
+  let name =
+  document.getElementById("studentName").value.trim();
+
+  let mobile =
+  document.getElementById("studentMobile").value.trim();
+
+  let studentClass =
+  document.getElementById("studentClass").value;
+
+  let email =
+  document.getElementById("studentEmail")
+  .value.trim().toLowerCase();
+
+  let password =
+  document.getElementById("studentPassword")
+  .value.trim();
+
+
+  if(
+    name==="" ||
+    mobile==="" ||
+    studentClass==="" ||
+    email==="" ||
+    password===""
+  ){
+
+    alert("कृपया सभी जानकारी भरें!");
+    return;
+
+  }
+
+
+  let alreadyExists = students.find(function(student){
+
+    return student.email &&
+    student.email.toLowerCase()===email;
+
+  });
+
+
+  if(alreadyExists){
+
+    alert("❌ यह Email पहले से मौजूद है!");
+    return;
+
+  }
+
+
+  students.push({
+
+    id:Date.now(),
+    name:name,
+    mobile:mobile,
+    class:studentClass,
+    email:email,
+    password:password
+
+  });
+
+
+  localStorage.setItem(
+    "gspStudents",
+    JSON.stringify(students)
+  );
+
+
+  document.getElementById("studentName").value="";
+  document.getElementById("studentMobile").value="";
+  document.getElementById("studentClass").value="";
+  document.getElementById("studentEmail").value="";
+  document.getElementById("studentPassword").value="";
+
+
+  updateStats();
+
+
+  alert(
+    "✅ Student सफलतापूर्वक Add हो गया!\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Password: " + password
+  );
+
+}
+
+
+/* ================= DISPLAY STUDENTS ================= */
+
+function displayStudents(){
+
+  let output =
+  document.getElementById("studentListData");
+
+
+  if(students.length===0){
+
+    output.innerHTML=
+    '<div class="empty">कोई Student अभी Add नहीं किया गया।</div>';
+
+    return;
+
+  }
+
+
+  let html=`
+
+  <table>
+
+  <tr>
+  <th>#</th>
+  <th>Name</th>
+  <th>Mobile</th>
+  <th>Class</th>
+  <th>Email</th>
+  <th>Action</th>
+  </tr>
+
+  `;
+
+
+  students.forEach(function(student,index){
+
+    html+=`
+
+    <tr>
+
+    <td>${index+1}</td>
+    <td>${student.name}</td>
+    <td>${student.mobile}</td>
+    <td>${student.class}</td>
+    <td>${student.email || ""}</td>
+
+    <td>
+
+    <button class="red"
+    onclick="deleteStudent(${student.id})">
+
+    Delete
+
+    </button>
+
+    </td>
+
+    </tr>
+
+    `;
+
+  });
+
+
+  html+="</table>";
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteStudent(id){
+
+  if(!confirm("क्या आप इस Student को Delete करना चाहते हैं?")){
+    return;
+  }
+
+
+  students=students.filter(function(student){
+    return student.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspStudents",
+    JSON.stringify(students)
+  );
+
+
+  displayStudents();
+  updateStats();
+
+}
+
+
+/* ================= ATTENDANCE ================= */
+
+function displayAttendance(){
+
+  let output =
+  document.getElementById("attendanceList");
+
+
+  if(students.length===0){
+
+    output.innerHTML=
+    '<div class="empty">पहले Students Add करें।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  students.forEach(function(student){
+
+    html+=`
+
+    <div class="attendance-row">
+
+    <b>
+    ${student.name}
+    (${student.class})
+    </b>
+
+    <select id="attendance-${student.id}">
+
+    <option value="Present">
+    ✅ Present
+    </option>
+
+    <option value="Absent">
+    ❌ Absent
+    </option>
+
+    </select>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function saveAttendance(){
+
+  let date =
+  document.getElementById("attendanceDate").value;
+
+
+  if(date===""){
+
+    alert("कृपया Date चुनें!");
+    return;
+
+  }
+
+
+  let attendance=[];
+
+
+  students.forEach(function(student){
+
+    let status =
+    document.getElementById(
+      "attendance-"+student.id
+    ).value;
+
+
+    attendance.push({
+
+      studentId:student.id,
+      name:student.name,
+      class:student.class,
+      status:status
+
+    });
+
+  });
+
+
+  let allAttendance =
+  JSON.parse(
+    localStorage.getItem("gspAttendance")
+  ) || {};
+
+
+  allAttendance[date]=attendance;
+
+
+  localStorage.setItem(
+    "gspAttendance",
+    JSON.stringify(allAttendance)
+  );
+
+
+  alert("✅ Attendance Save हो गई!");
+
+}
+
+
+/* ================= HOMEWORK ================= */
+
+function addHomework(){
+
+  let subject =
+  document.getElementById("homeworkSubject")
+  .value.trim();
+
+  let text =
+  document.getElementById("homeworkText")
+  .value.trim();
+
+  let date =
+  document.getElementById("homeworkDate")
+  .value;
+
+
+  if(subject==="" || text==="" || date===""){
+
+    alert("कृपया सभी जानकारी भरें!");
+    return;
+
+  }
+
+
+  homework.unshift({
+
+    id:Date.now(),
+    subject:subject,
+    text:text,
+    date:date
+
+  });
+
+
+  localStorage.setItem(
+    "gspHomework",
+    JSON.stringify(homework)
+  );
+
+
+  document.getElementById("homeworkSubject").value="";
+  document.getElementById("homeworkText").value="";
+  document.getElementById("homeworkDate").value="";
+
+
+  displayHomework();
+  updateStats();
+
+  alert("✅ Homework Add हो गया!");
+
+}
+
+
+function displayHomework(){
+
+  let output =
+  document.getElementById("homeworkList");
+
+
+  if(homework.length===0){
+
+    output.innerHTML=
+    '<div class="empty">कोई Homework नहीं है।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  homework.forEach(function(item){
+
+    html+=`
+
+    <div class="item">
+
+    <b>📚 Subject: ${item.subject}</b>
+
+    <p>${item.text}</p>
+
+    <small>📅 Date: ${item.date}</small>
+
+    <br>
+
+    <button class="red"
+    onclick="deleteHomework(${item.id})">
+
+    Delete
+
+    </button>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteHomework(id){
+
+  homework=homework.filter(function(item){
+    return item.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspHomework",
+    JSON.stringify(homework)
+  );
+
+
+  displayHomework();
+  updateStats();
+
+}
+
+
+/* ================= NOTICES ================= */
+
+function addNotice(){
+
+  let title =
+  document.getElementById("noticeTitle")
+  .value.trim();
+
+  let text =
+  document.getElementById("noticeText")
+  .value.trim();
+
+
+  if(title==="" || text===""){
+
+    alert("कृपया Notice भरें!");
+    return;
+
+  }
+
+
+  notices.unshift({
+
+    id:Date.now(),
+    title:title,
+    text:text
+
+  });
+
+
+  localStorage.setItem(
+    "gspNotices",
+    JSON.stringify(notices)
+  );
+
+
+  document.getElementById("noticeTitle").value="";
+  document.getElementById("noticeText").value="";
+
+
+  displayNotices();
+  updateStats();
+
+  alert("✅ Notice Publish हो गया!");
+
+}
+
+
+function displayNotices(){
+
+  let output =
+  document.getElementById("noticeList");
+
+
+  if(notices.length===0){
+
+    output.innerHTML=
+    '<div class="empty">कोई Notice नहीं है।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  notices.forEach(function(item){
+
+    html+=`
+
+    <div class="item">
+
+    <b>📢 ${item.title}</b>
+
+    <p>${item.text}</p>
+
+    <button class="red"
+    onclick="deleteNotice(${item.id})">
+
+    Delete
+
+    </button>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteNotice(id){
+
+  notices=notices.filter(function(item){
+    return item.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspNotices",
+    JSON.stringify(notices)
+  );
+
+
+  displayNotices();
+  updateStats();
+
+}
+
+
+/* ================= FREE TEST ================= */
+
+function addQuestion(){
+
+  let question =
+  document.getElementById("testQuestion")
+  .value.trim();
+
+  let a =
+  document.getElementById("optionA")
+  .value.trim();
+
+  let b =
+  document.getElementById("optionB")
+  .value.trim();
+
+  let c =
+  document.getElementById("optionC")
+  .value.trim();
+
+  let d =
+  document.getElementById("optionD")
+  .value.trim();
+
+  let answer =
+  document.getElementById("correctAnswer")
+  .value;
+
+
+  if(
+    question==="" ||
+    a==="" ||
+    b==="" ||
+    c==="" ||
+    d==="" ||
+    answer===""
+  ){
+
+    alert("कृपया सभी जानकारी भरें!");
+    return;
+
+  }
+
+
+  questions.push({
+
+    id:Date.now(),
+    question:question,
+    a:a,
+    b:b,
+    c:c,
+    d:d,
+    answer:answer
+
+  });
+
+
+  localStorage.setItem(
+    "gspQuestions",
+    JSON.stringify(questions)
+  );
+
+
+  document.getElementById("testQuestion").value="";
+  document.getElementById("optionA").value="";
+  document.getElementById("optionB").value="";
+  document.getElementById("optionC").value="";
+  document.getElementById("optionD").value="";
+  document.getElementById("correctAnswer").value="";
+
+
+  displayQuestions();
+  updateStats();
+
+  alert("✅ Test Question Add हो गया!");
+
+}
+
+
+function displayQuestions(){
+
+  let output =
+  document.getElementById("questionList");
+
+
+  if(questions.length===0){
+
+    output.innerHTML=
+    '<div class="empty">अभी कोई Question Add नहीं किया गया।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  questions.forEach(function(q,index){
+
+    html+=`
+
+    <div class="question">
+
+    <b>Q${index+1}. ${q.question}</b>
+
+    <p>A. ${q.a}</p>
+    <p>B. ${q.b}</p>
+    <p>C. ${q.c}</p>
+    <p>D. ${q.d}</p>
+
+    <b>✅ Correct Answer: ${q.answer}</b>
+
+    <br><br>
+
+    <button class="red"
+    onclick="deleteQuestion(${q.id})">
+
+    Delete Question
+
+    </button>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteQuestion(id){
+
+  questions=questions.filter(function(q){
+    return q.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspQuestions",
+    JSON.stringify(questions)
+  );
+
+
+  displayQuestions();
+  updateStats();
+
+}
+
+
+/* ================= FREE NOTES ================= */
+
+function addNote(){
+
+  let title =
+  document.getElementById("noteTitle")
+  .value.trim();
+
+  let subject =
+  document.getElementById("noteSubject")
+  .value.trim();
+
+  let noteClass =
+  document.getElementById("noteClass")
+  .value;
+
+  let content =
+  document.getElementById("noteContent")
+  .value.trim();
+
+  let link =
+  document.getElementById("noteLink")
+  .value.trim();
+
+
+  if(
+    title==="" ||
+    subject==="" ||
+    noteClass==="" ||
+    content===""
+  ){
+
+    alert("कृपया Notes की जरूरी जानकारी भरें!");
+    return;
+
+  }
+
+
+  notes.unshift({
+
+    id:Date.now(),
+    title:title,
+    subject:subject,
+    class:noteClass,
+    content:content,
+    link:link,
+    date:new Date().toLocaleDateString()
+
+  });
+
+
+  localStorage.setItem(
+    "gspNotes",
+    JSON.stringify(notes)
+  );
+
+
+  document.getElementById("noteTitle").value="";
+  document.getElementById("noteSubject").value="";
+  document.getElementById("noteClass").value="";
+  document.getElementById("noteContent").value="";
+  document.getElementById("noteLink").value="";
+
+
+  displayNotes();
+  updateStats();
+
+  alert("✅ Free Note Publish हो गया!");
+
+}
+
+
+function displayNotes(){
+
+  let output =
+  document.getElementById("notesList");
+
+
+  if(notes.length===0){
+
+    output.innerHTML=
+    '<div class="empty">अभी कोई Notes Publish नहीं है।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  notes.forEach(function(note){
+
+    let linkButton="";
+
+    if(note.link){
+
+      linkButton=`
+
+      <br>
+
+      <a href="${note.link}"
+      target="_blank"
+      style="
+      display:inline-block;
+      background:#1559a8;
+      color:white;
+      padding:10px 15px;
+      border-radius:8px;
+      text-decoration:none;
+      margin-top:8px;
+      ">
+
+      📄 Open Notes / PDF
+
+      </a>
+
+      `;
+
+    }
+
+
+    html+=`
+
+    <div class="note">
+
+    <h3>📚 ${note.title}</h3>
+
+    <b>Subject:</b> ${note.subject}
+
+    <br>
+
+    <b>Class:</b> ${note.class}
+
+    <p>${note.content}</p>
+
+    <small>📅 Published: ${note.date}</small>
+
+    ${linkButton}
+
+    <br>
+
+    <button class="red"
+    onclick="deleteNote(${note.id})">
+
+    Delete Note
+
+    </button>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteNote(id){
+
+  if(!confirm("क्या आप यह Note Delete करना चाहते हैं?")){
+    return;
+  }
+
+
+  notes=notes.filter(function(note){
+    return note.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspNotes",
+    JSON.stringify(notes)
+  );
+
+
+  displayNotes();
+  updateStats();
+
+}
+
+
+/* ================= TIMETABLE ================= */
+
+function addTimetable(){
+
+  let studentClass =
+  document.getElementById("timeClass").value;
+
+  let day =
+  document.getElementById("timeDay").value;
+
+  let start =
+  document.getElementById("timeStart").value;
+
+  let end =
+  document.getElementById("timeEnd").value;
+
+  let subject =
+  document.getElementById("timeSubject")
+  .value.trim();
+
+  let teacher =
+  document.getElementById("timeTeacher")
+  .value.trim();
+
+
+  if(
+    studentClass==="" ||
+    day==="" ||
+    start==="" ||
+    end==="" ||
+    subject===""
+  ){
+
+    alert("कृपया Timetable की जरूरी जानकारी भरें!");
+    return;
+
+  }
+
+
+  timetable.push({
+
+    id:Date.now(),
+    class:studentClass,
+    day:day,
+    start:start,
+    end:end,
+    subject:subject,
+    teacher:teacher
+
+  });
+
+
+  localStorage.setItem(
+    "gspTimetable",
+    JSON.stringify(timetable)
+  );
+
+
+  document.getElementById("timeClass").value="";
+  document.getElementById("timeDay").value="";
+  document.getElementById("timeStart").value="";
+  document.getElementById("timeEnd").value="";
+  document.getElementById("timeSubject").value="";
+  document.getElementById("timeTeacher").value="";
+
+
+  displayTimetable();
+
+  alert("✅ Timetable Add हो गया!");
+
+}
+
+
+function displayTimetable(){
+
+  let output =
+  document.getElementById("timetableList");
+
+
+  if(timetable.length===0){
+
+    output.innerHTML=
+    '<div class="empty">अभी कोई Timetable Add नहीं किया गया।</div>';
+
+    return;
+
+  }
+
+
+  let html="";
+
+
+  timetable.forEach(function(item){
+
+    html+=`
+
+    <div class="timetable-item">
+
+    <b>🏫 ${item.class}</b>
+
+    <p>
+
+    📅 ${item.day}
+
+    <br>
+
+    ⏰ ${item.start} - ${item.end}
+
+    <br>
+
+    📚 ${item.subject}
+
+    </p>
+
+    ${item.teacher ?
+    "<p>👨‍🏫 Teacher: "+item.teacher+"</p>"
+    : ""
+    }
+
+    <button class="red"
+    onclick="deleteTimetable(${item.id})">
+
+    Delete
+
+    </button>
+
+    </div>
+
+    `;
+
+  });
+
+
+  output.innerHTML=html;
+
+}
+
+
+function deleteTimetable(id){
+
+  if(!confirm("क्या आप यह Timetable Delete करना चाहते हैं?")){
+    return;
+  }
+
+
+  timetable=timetable.filter(function(item){
+    return item.id!==id;
+  });
+
+
+  localStorage.setItem(
+    "gspTimetable",
+    JSON.stringify(timetable)
+  );
+
+
+  displayTimetable();
+
+}
+
+
+/* ================= UPDATE STATS ================= */
+
+function updateStats(){
+
+  document.getElementById("studentCount").innerHTML =
+  students.length;
+
+  document.getElementById("homeworkCount").innerHTML =
+  homework.length;
+
+  document.getElementById("noticeCount").innerHTML =
+  notices.length;
+
+  document.getElementById("questionCount").innerHTML =
+  questions.length;
+
+  document.getElementById("noteCount").innerHTML =
+  notes.length;
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+  localStorage.removeItem("currentTeacher");
+
+}
+
+
+/* ================= START ================= */
+
+updateStats();
+
+</script>
+
+</body>
+</html>
