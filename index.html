@@ -6,6 +6,30 @@
 <title>Gyan Sagar Pathshala | Class 9th & 10th</title>
 <meta name="description" content="Gyan Sagar Pathshala, Laxmipur Sagardina. Classes 9th and 10th.">
 <style>
+.teacher-login {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+
+  background: linear-gradient(135deg, #ffc400, #ff9d00);
+  color: #071a35;
+
+  padding: 7px 14px;   /* छोटा size */
+  border-radius: 20px;
+
+  font-size: 14px;     /* छोटा text */
+  font-weight: bold;
+  text-decoration: none;
+
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s;
+}
+
+.teacher-login:hover {
+  transform: scale(1.05);
+  background: #ffffff;
+}
 :root{--navy:#071a35;--blue:#1559a8;--gold:#ffc400;--orange:#ff8b00;--soft:#f4f7fb;--text:#172238;--muted:#68758a;--green:#25d366}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:var(--text);background:var(--soft);line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(1150px,92%);margin:auto}
 header{position:sticky;top:0;z-index:100;background:rgba(7,26,53,.97);backdrop-filter:blur(10px)}.nav{height:76px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900}.brand img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}.brand small{display:block;color:#ffda50;font-size:10px;letter-spacing:1px}.links{display:flex;gap:20px;align-items:center;color:#fff;font-size:13px;font-weight:700}.links a:hover{color:var(--gold)}.nav-btn{background:var(--gold);color:#111;padding:10px 15px;border-radius:9px}
@@ -24,7 +48,16 @@ footer{background:#041021;color:#aab7cb;text-align:center;padding:22px}.float-wa
 @media(max-width:520px){section{padding:58px 0}.nav{height:68px}.brand img{width:45px;height:45px}.gallery{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.gallery-item{height:220px}}
 </style>
 </head>
-<body>
+<body> <body> <!-- Teacher Login -->
+<a href="teacher-login.html" class="teacher-login">
+  👨‍🏫 Teacher Login
+</a>
+
+<!-- Student Login -->
+<a href="student-login.html" class="student-login">
+  🎓 Student Login
+</a>
+<header>
 <header><div class="container nav">
 <a class="brand" href="#home"><img src="logo.jpeg" alt="Gyan Sagar Pathshala"><div>GYAN SAGAR PATHSHALA<small>STUDY TODAY • SUCCESS TOMORROW</small></div></a>
 <nav class="links"><a href="#home">होम</a><a href="#courses">Courses</a><a href="#gallery">Gallery</a><a href="#teachers">Teachers</a><a href="#admission">Admission</a><a href="#map">Map</a><a class="nav-btn" href="tel:+917091154109">📞 Call Now</a></nav>
