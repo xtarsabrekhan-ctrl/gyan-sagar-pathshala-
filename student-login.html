@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Login | Gyan Sagar Pathshala</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#071a35,#1559a8);
+  padding:20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:400px;
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.icon{
+  font-size:60px;
+}
+
+h1{
+  color:#071a35;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#ffc400;
+  color:#071a35;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#ffad00;
+}
+
+#message{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.back{
+  display:block;
+  margin-top:20px;
+  text-decoration:none;
+  color:#1559a8;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+<div class="icon">🎓</div>
+
+<h1>Student Login</h1>
+
+<p>Gyan Sagar Pathshala</p>
+
+<form onsubmit="studentLogin(event)">
+
+<input
+type="text"
+id="userId"
+placeholder="Enter User ID"
+required>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit">
+🔐 Login करें
+</button>
+
+</form>
+
+<div id="message"></div>
+
+<a href="index.html" class="back">
+← वापस Website पर जाएँ
+</a>
+
+</div>
+
+
+<script>
+
+function studentLogin(event){
+
+event.preventDefault();
+
+let userId=document.getElementById("userId").value.trim();
+
+let password=document.getElementById("password").value.trim();
+
+let students=
+JSON.parse(localStorage.getItem("gspStudents")) || [];
+
+let student=students.find(function(s){
+
+return s.userId===userId &&
+       s.password===password;
+
+});
+
+
+if(student){
+
+localStorage.setItem(
+"currentStudent",
+JSON.stringify(student)
+);
+
+document.getElementById("message").style.color="green";
+
+document.getElementById("message").innerHTML=
+"✅ Login सफल! Dashboard खुल रहा है...";
+
+setTimeout(function(){
+
+window.location.href="student-dashboard.html";
+
+},800);
+
+}
+
+else{
+
+document.getElementById("message").style.color="red";
+
+document.getElementById("message").innerHTML=
+"❌ User ID या Password गलत है!";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
