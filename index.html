@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyan Sagar Pathshala | Class 9th & 10th</title>
+<meta name="description" content="Gyan Sagar Pathshala, Laxmipur Sagardina. Classes 9th and 10th.">
+<style>
+:root{--navy:#071a35;--blue:#1559a8;--gold:#ffc400;--orange:#ff8b00;--soft:#f4f7fb;--text:#172238;--muted:#68758a;--green:#25d366}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:var(--text);background:var(--soft);line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(1150px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(7,26,53,.97);backdrop-filter:blur(10px)}.nav{height:76px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900}.brand img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}.brand small{display:block;color:#ffda50;font-size:10px;letter-spacing:1px}.links{display:flex;gap:20px;align-items:center;color:#fff;font-size:13px;font-weight:700}.links a:hover{color:var(--gold)}.nav-btn{background:var(--gold);color:#111;padding:10px 15px;border-radius:9px}
+.hero{background:radial-gradient(circle at 80% 15%,#1c5aa6 0,transparent 24%),linear-gradient(135deg,#06152c,#0a2856 60%,#06152c);color:white;overflow:hidden}.hero-grid{min-height:590px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:55px}.badge{display:inline-block;padding:8px 15px;border:1px solid rgba(255,196,0,.6);background:rgba(255,196,0,.12);border-radius:30px;color:#ffda59;font-weight:800}.hero h1{font-size:clamp(3rem,6vw,5.8rem);line-height:.95;margin:20px 0}.hero h1 span{color:var(--gold)}.hero p{color:#d7e3f4;font-size:1.1rem;max-width:650px}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-block;padding:14px 21px;border-radius:10px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-3px)}.gold{background:var(--gold);color:#111}.outline{border:1px solid rgba(255,255,255,.55);color:#fff}.hero-logo{width:min(420px,100%);border-radius:50%;display:block;margin:auto;padding:15px;background:rgba(255,255,255,.1);box-shadow:0 25px 60px rgba(0,0,0,.35)}.hero-logo img{width:100%;display:block;border-radius:50%;border:4px solid white}
+.stats{background:#fff;box-shadow:0 8px 30px rgba(10,35,75,.08)}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{text-align:center;padding:22px;border-right:1px solid #e8edf4}.stat:last-child{border:0}.stat b{display:block;color:var(--navy);font-size:1.1rem}.stat span{font-size:13px;color:var(--muted)}
+section{padding:80px 0}.center{text-align:center}.kicker{font-size:12px;font-weight:900;color:#d88b00;letter-spacing:2px;text-transform:uppercase}.heading{font-size:clamp(2rem,4vw,3rem);color:var(--navy);margin:7px 0 10px}.sub{color:var(--muted);max-width:720px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}.card{background:#fff;border:1px solid #e8edf4;padding:28px;border-radius:18px;box-shadow:0 12px 32px rgba(14,42,84,.08);transition:.25s}.card:hover{transform:translateY(-6px)}.icon{font-size:30px;width:64px;height:64px;display:grid;place-items:center;background:#edf5ff;border-radius:16px;margin-bottom:18px}.card h3{color:var(--navy);margin:0 0 8px}.card p{margin:0;color:var(--muted)}
+.course-wrap{background:#fff}.courses{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;margin-top:38px}.course{padding:30px;border-radius:20px;background:linear-gradient(135deg,#08204a,#124d96);color:#fff;position:relative;overflow:hidden}.course:nth-child(2){background:linear-gradient(135deg,#9b4b00,#e98b00)}.course h3{font-size:1.8rem;margin:0 0 8px}.course p{color:#e4ecf8}.course ul{padding-left:18px;margin:15px 0 0}.course li{margin:6px 0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.gallery-item{height:260px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#102c56,#1b5ca7);position:relative;box-shadow:0 12px 30px rgba(10,35,75,.12)}.gallery-item:nth-child(2){background:linear-gradient(135deg,#ffb500,#f07800)}.gallery-item:nth-child(3){background:linear-gradient(135deg,#1b7447,#48a870)}.gallery-item:nth-child(4){background:linear-gradient(135deg,#542c8d,#9066c8)}.gallery-item:nth-child(5){background:linear-gradient(135deg,#0e6681,#20a6c4)}.gallery-item:nth-child(6){background:linear-gradient(135deg,#8a3232,#cf6666)}.gallery-item img{width:100%;height:100%;object-fit:cover;opacity:.72}.gallery-label{position:absolute;left:0;right:0;bottom:0;padding:18px;color:#fff;font-weight:900;background:linear-gradient(transparent,rgba(0,0,0,.75))}.note{font-size:13px;color:var(--muted);margin-top:16px}
+.teachers-bg{background:#fff}.teachers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}.teacher{background:var(--soft);border-radius:20px;padding:28px;text-align:center;border:1px solid #e8edf4}.teacher-photo{width:110px;height:110px;border-radius:50%;margin:0 auto 17px;background:linear-gradient(135deg,#154d95,#0a2347);display:grid;place-items:center;color:#fff;font-size:42px;border:4px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.13)}.teacher h3{margin:0;color:var(--navy)}.teacher span{color:#d88b00;font-weight:700;font-size:14px}.teacher p{font-size:14px;color:var(--muted)}
+.admission{background:linear-gradient(135deg,#071a35,#0e376d);color:#fff}.admission-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px}.admission .heading{color:#fff}.admission .sub{margin:0;color:#cbd9ed}.form{background:#fff;color:var(--text);padding:30px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.2)}.form label{display:block;font-weight:800;color:var(--navy);font-size:14px;margin:12px 0 5px}.form input,.form select,.form textarea{width:100%;padding:13px;border:1px solid #dce3ed;border-radius:9px;font:inherit;outline:none}.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,89,168,.1)}.form textarea{min-height:80px;resize:vertical}.submit{width:100%;border:0;cursor:pointer;margin-top:18px;font-size:16px}
+.map-section{background:#fff}.map-card{margin-top:35px;border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(12,35,72,.12);border:1px solid #e8edf4}.map-card iframe{width:100%;height:440px;border:0}.map-caption{padding:18px;background:#fff}.map-caption b{color:var(--navy)}
+.contact{background:#071a35;color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.contact .heading{color:#fff}.contact .sub{margin:0;color:#cbd9ed}.contact-box{background:#fff;color:var(--text);padding:26px;border-radius:20px}.row{padding:15px 0;border-bottom:1px solid #e7edf5}.row:last-child{border:0}.row b{display:block;color:var(--navy)}.row span,.row a{color:var(--muted)}
+footer{background:#041021;color:#aab7cb;text-align:center;padding:22px}.float-wa{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:27px;z-index:90;border:3px solid #fff;box-shadow:0 12px 28px rgba(0,0,0,.28)}
+@media(max-width:900px){.links{display:none}.hero-grid,.admission-grid,.contact-grid{grid-template-columns:1fr;text-align:center}.hero-grid{padding:55px 0}.hero p{margin:auto}.btns{justify-content:center}.cards,.teachers{grid-template-columns:1fr}.courses{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat{border-bottom:1px solid #e8edf4}.admission .sub{margin:auto}.map-card iframe{height:350px}}
+@media(max-width:520px){section{padding:58px 0}.nav{height:68px}.brand img{width:45px;height:45px}.gallery{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.gallery-item{height:220px}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="brand" href="#home"><img src="logo.jpeg" alt="Gyan Sagar Pathshala"><div>GYAN SAGAR PATHSHALA<small>STUDY TODAY • SUCCESS TOMORROW</small></div></a>
+<nav class="links"><a href="#home">होम</a><a href="#courses">Courses</a><a href="#gallery">Gallery</a><a href="#teachers">Teachers</a><a href="#admission">Admission</a><a href="#map">Map</a><a class="nav-btn" href="tel:+917091154109">📞 Call Now</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-grid">
+<div><div class="badge">🎓 Admissions Open • Class 9th & 10th</div><h1>GYAN <span>SAGAR</span><br>PATHSHALA</h1><p><b>ज्ञान की गहराई, सफलता की ऊँचाई।</b><br>आसान explanation, clear concepts और बेहतर परिणाम की दिशा में विद्यार्थियों के लिए समर्पित learning environment.</p><div class="btns"><a class="btn gold" href="#admission">📝 Admission लें</a><a class="btn outline" href="https://wa.me/917091154109" target="_blank">💬 WhatsApp करें</a></div></div>
+<div class="hero-logo"><img src="logo.jpeg" alt="Gyan Sagar Pathshala"></div>
+</div></section>
+
+<div class="stats"><div class="container stats-grid"><div class="stat"><b>Class 9th</b><span>Focused Learning</span></div><div class="stat"><b>Class 10th</b><span>Better Preparation</span></div><div class="stat"><b>6 से 9 बजे</b><span>Class Timing</span></div><div class="stat"><b>7091154109</b><span>Call / WhatsApp</span></div></div></div>
+
+<section><div class="container center"><div class="kicker">Why Choose Us</div><h2 class="heading">पढ़ाई का बेहतर तरीका</h2><p class="sub">विद्यार्थियों को मजबूत आधार, स्पष्ट कॉन्सेप्ट और नियमित अभ्यास की दिशा में बेहतर मार्गदर्शन।</p><div class="cards"><div class="card"><div class="icon">📖</div><h3>Easy Explanation</h3><p>कठिन विषयों को सरल और समझने योग्य तरीके से समझाने पर ध्यान।</p></div><div class="card"><div class="icon">🎯</div><h3>Clear Concepts</h3><p>Fundamentals और concepts को मजबूत बनाने की दिशा में पढ़ाई।</p></div><div class="card"><div class="icon">📈</div><h3>Better Results</h3><p>नियमित अभ्यास और सही guidance के साथ बेहतर प्रदर्शन का लक्ष्य।</p></div></div></div></section>
+
+<section class="course-wrap" id="courses"><div class="container"><div class="center"><div class="kicker">Our Courses</div><h2 class="heading">हमारी कक्षाएँ</h2><p class="sub">कक्षा 9वीं और 10वीं के विद्यार्थियों के लिए focused academic support.</p></div><div class="courses"><div class="course"><h3>📘 Class 9th</h3><p>नौवीं कक्षा के लिए Subject और fundamentals पर विशेष ध्यान।</p><ul><li> 📖 Hindi - सरल भाषा में पाठ, प्रश्न-उत्तर और व्याकरण की तैयारी।</li><li> 📖 English Grammar- Literature और महत्वपूर्ण प्रश्नों का अभ्यास।</li><li> 📖 Math-  अध्यायवार प्रश्न, सूत्र और आसान तरीकों से अभ्यास।</li><li> 📖 Science- भौतिकी, रसायन और जीवविज्ञान के Concepts को आसान तरीके से समझें।</li><li> 📖 Social Science- इतिहास, भूगोल, नागरिक शास्त्र और अर्थशास्त्र की तैयारी।</li><li> 📖 Sanskrit- पाठ, व्याकरण और महत्वपूर्ण प्रश्नों का सरल अभ्यास</li><li> 📖 Urdu- आसान भाषा में उर्दू पढ़ें और परीक्षा की तैयारी करें। </li></ul></div><div class="course"><h3>📕 Class 10th</h3><p>दसवीं कक्षा के लिए मजबूत Subject  और नियमित अभ्यास।</p><ul><li> 📖 Hindi-  बोर्ड परीक्षा के महत्वपूर्ण पाठ, प्रश्न-उत्तर और व्याकरण।</li><li> 📖 English Grammar- Literature और Board के महत्वपूर्ण प्रश्नों की तैयारी।</li><li> 📖 Math- महत्वपूर्ण अध्याय, सूत्र और बोर्ड परीक्षा के प्रश्नों का अभ्यास।</li><li> 📖 Science-  Physics, Chemistry और Biology के महत्वपूर्ण Concepts एवं प्रश्न। </li><li>📖 Social,Science- इतिहास, भूगोल, नागरिक शास्त्र और अर्थशास्त्र की बोर्ड तैयारी।</li><li> 📖 Sanskrit- महत्वपूर्ण पाठ, व्याकरण और परीक्षा उपयोगी प्रश्नों का अभ्यास।</li><li>📖 Urdu- बोर्ड परीक्षा के लिए उर्दू की आसान और बेहतर तैयारी।  </li><li>Better performance guidance</li></ul></div></div></div></section>
+
+
+</section>
+
+<!-- ===== PURCHASE COURSE SECTION END ===== --><section id="gallery"><div class="container center"><div class="kicker">Photo Gallery</div><h2 class="heading">Gyan Sagar Pathshala Gallery</h2><p class="sub">यह gallery आपकी coaching की classroom, students और activities की photos के लिए तैयार है।</p><div class="gallery">
+<div class="gallery-item"><img src="logo.jpeg" alt="Gyan Sagar Pathshala"><div class="gallery-label">Gyan Sagar Pathshala</div></div>
+<div class="gallery-item"><div class="gallery-label">📚 Classroom Photo</div></div>
+<div class="gallery-item"><div class="gallery-label">🎓 Student Activity</div></div>
+<div class="gallery-item"><div class="gallery-label">📝 Study Session</div></div>
+<div class="gallery-item"><div class="gallery-label">🏆 Achievement</div></div>
+<div class="gallery-item"><div class="gallery-label">✨ Coaching Activities</div></div>
+</div><p class="note">📌 अपनी असली classroom और student photos देने पर इन्हें gallery में professionally लगाया जा सकता है।</p></div></section>
+
+<section class="teachers-bg" id="teachers"><div class="container center"><div class="kicker">Our Faculty</div><h2 class="heading">Our Teachers</h2><p class="sub">अनुभवी और समर्पित शिक्षकों की टीम विद्यार्थियों के learning journey में मार्गदर्शन के लिए तैयार है।</p><div class="teachers">
+<div class="teacher"><div class="teacher-photo">👩‍🏫</div><h3>Jafre Sir </h3><span>Subject Teacher</span><p>Clear explanation और बेहतर understanding पर ध्यान देने वाला academic guidance.</p></div>
+<div class="teacher"><div class="teacher-photo>👩‍🏫</div><h3>Seraj Sir </h3><span>Subject Teacher</span><p>Regular practice और concepts को मजबूत बनाने की दिशा में guidance.</p></div>
+<div class="teacher"><div class="teacher-photo">👨‍🏫</div><h3>Seraj Sir </h3><span>Subject Teacher</span><p>विद्यार्थियों को बेहतर learning और performance के लिए प्रेरित करना।</p></div>
+</div><p class="note">📌 Teachers के असली नाम और photos मिलने पर यह section पूरी तरह personal बनाया जा सकता है।</p></div></section>
+
+<section class="admission" id="admission"><div class="container admission-grid"><div><div class="kicker" style="color:#ffcf4c">Admissions Open</div><h2 class="heading">Admission Enquiry Form</h2><p class="sub">नीचे form भरें। Submit करने पर enquiry सीधे WhatsApp पर भेजी जाएगी।</p><div class="btns"><a class="btn gold" href="tel:+917091154109">📞 Call: 7091154109</a></div></div>
+<form class="form" onsubmit="sendAdmission(event)">
+<label>Student Name *</label><input id="name" required placeholder="विद्यार्थी का नाम">
+<label>Mobile Number *</label><input id="mobile" required inputmode="tel" placeholder="मोबाइल नंबर">
+<label>Class *</label><select id="class" required><option value="">Class चुनें</option><option>Class 9th</option><option>Class 10th</option></select>
+<label>Parent / Guardian Name</label><input id="parent" placeholder="अभिभावक का नाम">
+<label>Message</label><textarea id="message" placeholder="कोई प्रश्न या जानकारी"></textarea>
+<button class="btn gold submit" type="submit">💬 WhatsApp पर Enquiry भेजें</button>
+</form></div></section>
+
+<section class="map-section" id="map"><div class="container center"><div class="kicker">Find Us</div><h2 class="heading">हमारा Location</h2><p class="sub">School Address: <b>Laxmipur Sagardina</b></p><div class="map-card"><iframe title="Gyan Sagar Pathshala Location" src="https://www.google.com/maps?q=Laxmipur%20Sagardina&output=embed" loading="lazy"></iframe><div class="map-caption"><b>📍 Gyan Sagar Pathshala</b><br>Laxmipur Sagardina</div></div><p class="note">Map में सही जगह सुनिश्चित करने के लिए पूरा गाँव/पोस्ट ऑफिस/जिला/राज्य का address देने पर exact location set की जा सकती है।</p></div></section>
+
+<section class="contact" id="contact"><div class="container contact-grid"><div><div class="kicker" style="color:#ffcf4c">Contact Us</div><h2 class="heading">आज ही संपर्क करें</h2><p class="sub">Admission और class enquiry के लिए हमें Call या WhatsApp करें।</p><div class="btns"><a class="btn gold" href="tel:+917091154109">📞 7091154109</a><a class="btn outline" href="https://wa.me/917091154109" target="_blank">💬 WhatsApp करें</a></div></div><div class="contact-box"><div class="row"><b>📱 Mobile Number</b><a href="tel:+917091154109">7091154109</a></div><div class="row"><b>💬 WhatsApp Number</b><a href="https://wa.me/917091154109" target="_blank">7091154109</a></div><div class="row"><b>📍 School Address</b><span>Laxmipur Sagardina</span></div><div class="row"><b>⏰ Class Timing</b><span>6 से 9 बजे तक</span></div><div class="row"><b>🎓 Classes Available</b><span>Class 9th & 10th</span></div></div></div></section>
+</main>
+<footer>© 2026 Gyan Sagar Pathshala • Study Today, Success Tomorrow</footer>
+<a class="float-wa" href="https://wa.me/917091154109" target="_blank" aria-label="WhatsApp">☎</a>
+<script>
+function sendAdmission(e){
+ e.preventDefault();
+ const n=document.getElementById('name').value;
+ const m=document.getElementById('mobile').value;
+ const c=document.getElementById('class').value;
+ const p=document.getElementById('parent').value;
+ const msg=document.getElementById('message').value;
+ const text=`*NEW ADMISSION ENQUIRY - GYAN SAGAR PATHSHALA*%0A%0A*Student Name:* ${encodeURIComponent(n)}%0A*Mobile:* ${encodeURIComponent(m)}%0A*Class:* ${encodeURIComponent(c)}%0A*Parent/Guardian:* ${encodeURIComponent(p)}%0A*Message:* ${encodeURIComponent(msg)}`;
+ window.open('https://wa.me/917091154109?text='+text,'_blank');
+}
+</script>
+</body>
+</html>
