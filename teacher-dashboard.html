@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teacher Dashboard | Gyan Sagar Pathshala</title>
+<title>Teacher Dashboard - Gyan Sagar Pathshala</title>
 
 <style>
 
@@ -17,80 +17,117 @@
 
 body{
     margin:0;
-    background:#f4f7fb;
+    background:#eef2f7;
     color:#222;
 }
+
+/* ================= HEADER ================= */
 
 header{
     position:fixed;
     top:0;
     left:0;
     right:0;
-    height:75px;
-    background:#12345b;
+    height:88px;
+    background:#17375e;
     color:white;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:10px 25px;
+
+    padding:15px 30px;
+
     z-index:1000;
 }
 
-header h2{
+.logo-area h1{
     margin:0;
+    font-size:28px;
 }
 
-#teacherName{
+.logo-area p{
+    margin:5px 0 0;
     font-size:14px;
-    margin-top:5px;
 }
 
 .logout-btn{
-    background:#dc3545;
+    background:#e63946;
     color:white;
+
     border:none;
-    padding:10px 18px;
-    border-radius:7px;
+    border-radius:8px;
+
+    padding:13px 25px;
+
+    font-size:16px;
     cursor:pointer;
 }
 
+/* ================= SIDEBAR ================= */
+
 .sidebar{
+
     position:fixed;
-    top:75px;
-    bottom:0;
+
+    top:88px;
     left:0;
-    width:250px;
-    background:#102640;
-    padding:15px 10px;
+    bottom:0;
+
+    width:280px;
+
+    background:#142b46;
+
+    padding:25px 12px;
+
     overflow-y:auto;
 }
 
-.sidebar h3{
+.sidebar h2{
+
     color:white;
-    padding-left:10px;
+
+    margin:0 0 20px;
+
+    padding-left:12px;
 }
 
 .menu-btn{
+
     width:100%;
-    padding:13px;
-    margin-bottom:5px;
+
+    padding:16px;
+
+    margin-bottom:6px;
+
     border:none;
-    border-radius:7px;
+
+    border-radius:8px;
+
     background:transparent;
+
     color:white;
+
     text-align:left;
-    font-size:15px;
+
+    font-size:16px;
+
     cursor:pointer;
 }
 
 .menu-btn:hover,
 .menu-btn.active{
-    background:#3264a3;
+
+    background:#35649d;
 }
 
+/* ================= MAIN ================= */
+
 .main{
-    margin-left:250px;
-    padding:100px 30px 30px;
+
+    margin-left:280px;
+
+    padding:120px 35px 40px;
 }
 
 .section{
@@ -101,142 +138,266 @@ header h2{
     display:block;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
+h1{
+    color:#26384e;
 }
 
-.card,
-.form-box,
-.list-box{
-    background:white;
-    padding:22px;
-    border-radius:12px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
+/* ================= CARDS ================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
 }
 
 .card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
     text-align:center;
 }
 
-.card p{
-    font-size:28px;
-    font-weight:bold;
-    color:#245b9b;
+.card h3{
+    margin-top:0;
 }
 
+.card p{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#245b9b;
+
+    margin-bottom:0;
+}
+
+/* ================= FORM ================= */
+
 .form-box{
-    max-width:750px;
+
+    background:white;
+
+    max-width:850px;
+
+    padding:28px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
 }
 
 .form-group{
-    margin-bottom:15px;
+
+    margin-bottom:18px;
 }
 
 label{
+
     display:block;
-    margin-bottom:6px;
+
+    margin-bottom:8px;
+
     font-weight:bold;
+
+    font-size:16px;
 }
 
 input,
 textarea{
+
     width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    font-size:15px;
-}
 
-textarea{
-    min-height:100px;
-}
+    padding:14px;
 
-.primary-btn{
-    background:#245b9b;
-    color:white;
-    border:none;
-    padding:13px 20px;
-    border-radius:7px;
-    cursor:pointer;
+    border:1px solid #cfd5dd;
+
+    border-radius:9px;
+
     font-size:16px;
 }
 
-.primary-btn:hover{
-    background:#173e6b;
+textarea{
+
+    min-height:120px;
+
+    resize:vertical;
 }
 
-.delete-btn{
-    background:#dc3545;
+.primary-btn{
+
+    background:#245b9b;
+
     color:white;
+
     border:none;
-    padding:8px 12px;
-    border-radius:6px;
+
+    padding:14px 25px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
     cursor:pointer;
 }
 
+.primary-btn:hover{
+
+    background:#173e6b;
+}
+
+.primary-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+}
+
+.delete-btn{
+
+    background:#e63946;
+
+    color:white;
+
+    border:none;
+
+    padding:9px 15px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+}
+
+/* ================= LIST ================= */
+
+.list-box{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+}
+
 .list-item{
-    padding:15px 0;
-    border-bottom:1px solid #ddd;
+
+    padding:18px 5px;
+
+    border-bottom:1px solid #e5e5e5;
 }
 
 .list-item:last-child{
+
     border-bottom:none;
 }
 
+/* ================= STATUS ================= */
+
 .status{
-    margin-top:15px;
-    padding:12px;
-    border-radius:7px;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border-radius:8px;
+
     display:none;
 }
 
 .status.success{
+
     display:block;
-    background:#d4edda;
-    color:#155724;
+
+    background:#d1e7dd;
+
+    color:#0f5132;
 }
 
 .status.error{
+
     display:block;
+
     background:#f8d7da;
-    color:#721c24;
+
+    color:#842029;
 }
 
 .status.loading{
+
     display:block;
-    background:#dbeafe;
-    color:#12345b;
+
+    background:#cfe2ff;
+
+    color:#084298;
 }
 
-@media(max-width:800px){
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    header{
+
+        height:auto;
+
+        min-height:75px;
+
+        padding:12px;
+    }
+
+    .logo-area h1{
+
+        font-size:20px;
+    }
 
     .sidebar{
+
         position:relative;
+
         top:75px;
+
         width:100%;
+
+        bottom:auto;
+
         display:flex;
+
         flex-wrap:wrap;
     }
 
-    .sidebar h3{
+    .sidebar h2{
+
         width:100%;
     }
 
     .menu-btn{
+
         width:auto;
+
         flex:1;
-        min-width:130px;
+
+        min-width:145px;
     }
 
     .main{
-        margin-left:0;
-        padding:100px 15px 20px;
-    }
 
-    header h2{
-        font-size:17px;
+        margin-left:0;
+
+        padding:100px 15px 30px;
     }
 
 }
@@ -249,123 +410,205 @@ textarea{
 <body>
 
 
+<!-- ================= HEADER ================= -->
+
 <header>
 
-<div>
+<div class="logo-area">
 
-<h2>👨‍🏫 Gyan Sagar Pathshala</h2>
+<h1>👨‍🏫 Gyan Sagar Pathshala</h1>
 
-<div id="teacherName">
+<p id="teacherName">
 Loading Teacher...
-</div>
+</p>
 
 </div>
 
-<button class="logout-btn" onclick="logoutUser()">
+
+<button
+class="logout-btn"
+onclick="logoutUser()">
+
 🚪 Logout
+
 </button>
 
 </header>
 
 
 
+<!-- ================= SIDEBAR ================= -->
+
 <div class="sidebar">
 
-<h3>Teacher Portal</h3>
+<h2>Teacher Portal</h2>
 
-<button class="menu-btn active"
+
+<button
+class="menu-btn active"
 onclick="showSection('dashboard',this)">
+
 🏠 Dashboard
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('addStudent',this)">
+
 ➕ Add Student
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('studentList',this)">
+
 📋 Student List
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('homework',this)">
+
 📚 Homework
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('notices',this)">
+
 📢 Notices
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('notes',this)">
+
 📖 Free Notes
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('timetable',this)">
+
 🗓️ Timetable
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('tests',this)">
+
 📝 Free Test
+
 </button>
 
-<button class="menu-btn"
+
+<button
+class="menu-btn"
 onclick="showSection('scores',this)">
+
 📊 Test Scores
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('changePassword',this)">
+
+🔐 Change Password
+
 </button>
 
 </div>
 
 
+
+<!-- ================= MAIN ================= -->
 
 <div class="main">
 
 
-<!-- DASHBOARD -->
+<!-- ================= DASHBOARD ================= -->
 
-<div id="dashboard" class="section active">
+<div
+id="dashboard"
+class="section active">
 
 <h1>👋 Welcome Teacher</h1>
+
+<p>
+यह Online Dashboard Firebase के साथ काम करेगा।
+</p>
+
 
 <div class="cards">
 
 <div class="card">
+
 <h3>🎓 Students</h3>
+
 <p id="studentCount">0</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>📚 Homework</h3>
+
 <p id="homeworkCount">0</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>📢 Notices</h3>
+
 <p id="noticeCount">0</p>
+
 </div>
+
 
 <div class="card">
+
 <h3>📝 Tests</h3>
+
 <p id="testCount">0</p>
-</div>
 
 </div>
 
 </div>
 
+</div>
 
 
-<!-- ADD STUDENT -->
 
-<div id="addStudent" class="section">
+<!-- ================= ADD STUDENT ================= -->
+
+<div
+id="addStudent"
+class="section">
 
 <h1>➕ Create Student Account</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
@@ -423,7 +666,12 @@ id="createStudentButton">
 </button>
 
 
-<div id="studentStatus" class="status"></div>
+<div
+id="studentStatus"
+class="status">
+
+</div>
+
 
 </div>
 
@@ -431,47 +679,62 @@ id="createStudentButton">
 
 
 
-<!-- STUDENT LIST -->
+<!-- ================= STUDENT LIST ================= -->
 
-<div id="studentList" class="section">
+<div
+id="studentList"
+class="section">
 
 <h1>📋 Student List</h1>
+
 
 <div class="list-box">
 
 <div id="studentsList">
-Loading...
-</div>
+
+Loading Students...
 
 </div>
 
 </div>
 
+</div>
 
 
-<!-- HOMEWORK -->
 
-<div id="homework" class="section">
+<!-- ================= HOMEWORK ================= -->
+
+<div
+id="homework"
+class="section">
 
 <h1>📚 Add Homework</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
 <label>Subject</label>
 
-<input id="homeworkSubject">
+<input
+id="homeworkSubject"
+placeholder="Example: Mathematics">
 
 </div>
+
 
 <div class="form-group">
 
-<label>Homework</label>
+<label>Homework Details</label>
 
-<textarea id="homeworkText"></textarea>
+<textarea
+id="homeworkText"
+placeholder="Write Homework here..."></textarea>
 
 </div>
+
 
 <button
 class="primary-btn"
@@ -481,41 +744,58 @@ onclick="addHomework()">
 
 </button>
 
+
 </div>
+
 
 <br>
 
+
 <div class="list-box">
+
+<h2>Published Homework</h2>
+
 <div id="homeworkTeacherList"></div>
-</div>
 
 </div>
 
+</div>
 
 
-<!-- NOTICES -->
 
-<div id="notices" class="section">
+<!-- ================= NOTICES ================= -->
+
+<div
+id="notices"
+class="section">
 
 <h1>📢 Publish Notice</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
 <label>Notice Title</label>
 
-<input id="noticeTitle">
+<input
+id="noticeTitle"
+placeholder="Enter Notice Title">
 
 </div>
+
 
 <div class="form-group">
 
 <label>Notice Message</label>
 
-<textarea id="noticeText"></textarea>
+<textarea
+id="noticeText"
+placeholder="Write Notice here..."></textarea>
 
 </div>
+
 
 <button
 class="primary-btn"
@@ -525,41 +805,58 @@ onclick="addNotice()">
 
 </button>
 
+
 </div>
+
 
 <br>
 
+
 <div class="list-box">
+
+<h2>Published Notices</h2>
+
 <div id="noticeTeacherList"></div>
-</div>
 
 </div>
 
+</div>
 
 
-<!-- NOTES -->
 
-<div id="notes" class="section">
+<!-- ================= FREE NOTES ================= -->
+
+<div
+id="notes"
+class="section">
 
 <h1>📖 Free Notes</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
 <label>Notes Title</label>
 
-<input id="notesTitle">
+<input
+id="notesTitle"
+placeholder="Example: Science Chapter 1">
 
 </div>
+
 
 <div class="form-group">
 
 <label>Notes Details</label>
 
-<textarea id="notesText"></textarea>
+<textarea
+id="notesText"
+placeholder="Write Notes here..."></textarea>
 
 </div>
+
 
 <button
 class="primary-btn"
@@ -569,49 +866,69 @@ onclick="addNotes()">
 
 </button>
 
+
 </div>
+
 
 <br>
 
+
 <div class="list-box">
+
+<h2>Published Notes</h2>
+
 <div id="notesTeacherList"></div>
-</div>
 
 </div>
 
+</div>
 
 
-<!-- TIMETABLE -->
 
-<div id="timetable" class="section">
+<!-- ================= TIMETABLE ================= -->
+
+<div
+id="timetable"
+class="section">
 
 <h1>🗓️ Timetable</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
 <label>Class</label>
 
-<input id="timeClass">
+<input
+id="timeClass"
+placeholder="Example: Class 10">
 
 </div>
+
 
 <div class="form-group">
 
 <label>Day</label>
 
-<input id="timeDay">
+<input
+id="timeDay"
+placeholder="Example: Monday">
 
 </div>
+
 
 <div class="form-group">
 
 <label>Timetable Details</label>
 
-<textarea id="timeText"></textarea>
+<textarea
+id="timeText"
+placeholder="Example: Mathematics - 10 AM"></textarea>
 
 </div>
+
 
 <button
 class="primary-btn"
@@ -621,33 +938,47 @@ onclick="addTimetable()">
 
 </button>
 
+
 </div>
+
 
 <br>
 
+
 <div class="list-box">
+
+<h2>Published Timetable</h2>
+
 <div id="timetableTeacherList"></div>
-</div>
 
 </div>
 
+</div>
 
 
-<!-- TEST -->
 
-<div id="tests" class="section">
+<!-- ================= FREE TEST ================= -->
+
+<div
+id="tests"
+class="section">
 
 <h1>📝 Create Free Test</h1>
 
+
 <div class="form-box">
+
 
 <div class="form-group">
 
 <label>Test Title</label>
 
-<input id="testTitle">
+<input
+id="testTitle"
+placeholder="Example: Mathematics Test">
 
 </div>
+
 
 <div class="form-group">
 
@@ -661,21 +992,28 @@ min="1">
 
 </div>
 
+
 <div class="form-group">
 
 <label>Question</label>
 
-<textarea id="testQuestion"></textarea>
+<textarea
+id="testQuestion"
+placeholder="Write Question"></textarea>
 
 </div>
+
 
 <div class="form-group">
 
 <label>Correct Answer</label>
 
-<input id="testAnswer">
+<input
+id="testAnswer"
+placeholder="Correct Answer">
 
 </div>
+
 
 <button
 class="primary-btn"
@@ -685,56 +1023,138 @@ onclick="addTest()">
 
 </button>
 
+
 </div>
+
 
 <br>
 
+
 <div class="list-box">
+
+<h2>Published Tests</h2>
+
 <div id="testsTeacherList"></div>
-</div>
 
 </div>
 
+</div>
 
 
-<!-- SCORES -->
 
-<div id="scores" class="section">
+<!-- ================= SCORES ================= -->
+
+<div
+id="scores"
+class="section">
 
 <h1>📊 Student Test Scores</h1>
+
 
 <div class="list-box">
 
 <div id="scoresList">
-Loading...
-</div>
+
+Loading Scores...
 
 </div>
 
 </div>
 
+</div>
+
+
+
+<!-- ================= CHANGE PASSWORD ================= -->
+
+<div
+id="changePassword"
+class="section">
+
+<h1>🔐 Change Teacher Password</h1>
+
+
+<div class="form-box">
+
+
+<div class="form-group">
+
+<label>New Password</label>
+
+<input
+type="password"
+id="newPassword"
+placeholder="कम से कम 6 characters">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Confirm New Password</label>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="दोबारा Password लिखें">
+
+</div>
+
+
+<button
+class="primary-btn"
+onclick="changeTeacherPassword()">
+
+🔐 Change Password
+
+</button>
+
+
+<div
+id="passwordStatus"
+class="status">
+
+</div>
+
+
+</div>
+
+</div>
+
 
 </div>
 
 
 
-<!-- MENU JAVASCRIPT -->
+<!-- ================= NORMAL JAVASCRIPT ================= -->
 
 <script>
 
-window.showSection=function(id,button){
+function showSection(id,button){
 
-    document.querySelectorAll(".section").forEach(function(section){
+    document
+    .querySelectorAll(".section")
+    .forEach(function(section){
 
         section.classList.remove("active");
 
     });
 
 
-    document.getElementById(id).classList.add("active");
+    const selectedSection=
+    document.getElementById(id);
 
 
-    document.querySelectorAll(".menu-btn").forEach(function(btn){
+    if(selectedSection){
+
+        selectedSection.classList.add("active");
+
+    }
+
+
+    document
+    .querySelectorAll(".menu-btn")
+    .forEach(function(btn){
 
         btn.classList.remove("active");
 
@@ -747,16 +1167,18 @@ window.showSection=function(id,button){
 
     }
 
-};
+}
 
 </script>
 
 
 
-<!-- FIREBASE -->
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
+
+/* ================= IMPORT CONFIG ================= */
 
 import {
 
@@ -769,6 +1191,9 @@ firebaseConfig
 from "./firebase-config.js";
 
 
+
+/* ================= FIREBASE APP ================= */
+
 import {
 
 initializeApp,
@@ -780,12 +1205,20 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
+
+/* ================= FIREBASE AUTH ================= */
+
 import {
 
 getAuth,
+
 onAuthStateChanged,
+
 signOut,
-createUserWithEmailAndPassword
+
+createUserWithEmailAndPassword,
+
+updatePassword
 
 }
 
@@ -793,17 +1226,29 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
+
+/* ================= FIRESTORE ================= */
+
 import {
 
 collection,
+
 doc,
+
 getDoc,
+
 setDoc,
+
 addDoc,
+
 deleteDoc,
+
 query,
+
 where,
+
 onSnapshot,
+
 serverTimestamp
 
 }
@@ -812,27 +1257,49 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
+
 let currentTeacher=null;
 
 
-/* STATUS */
+
+/* ================= STATUS ================= */
 
 function showStudentStatus(message,type){
 
-    const box=
+    const status=
     document.getElementById("studentStatus");
 
-    box.innerText=message;
+    status.innerText=message;
 
-    box.className="status "+type;
+    status.className=
+    "status "+type;
 
 }
 
 
 
-/* AUTH CHECK */
+function showPasswordStatus(message,type){
 
-onAuthStateChanged(auth,async function(user){
+    const status=
+    document.getElementById("passwordStatus");
+
+    status.innerText=message;
+
+    status.className=
+    "status "+type;
+
+}
+
+
+
+/* ================= LOGIN CHECK ================= */
+
+onAuthStateChanged(
+
+auth,
+
+async function(user){
+
 
     if(!user){
 
@@ -845,7 +1312,8 @@ onAuthStateChanged(auth,async function(user){
 
     try{
 
-        const teacherDoc=
+
+        const userDoc=
 
         await getDoc(
 
@@ -858,22 +1326,31 @@ onAuthStateChanged(auth,async function(user){
         );
 
 
-        if(!teacherDoc.exists()){
+        if(!userDoc.exists()){
 
-            alert("Teacher Profile Firestore में नहीं मिला!");
+            document
+            .getElementById("teacherName")
+            .innerText=user.email;
+
+            currentTeacher=user;
 
             return;
 
         }
 
 
-        const teacherData=
-        teacherDoc.data();
+        const userData=
+        userDoc.data();
 
 
-        if(teacherData.role!=="teacher"){
+        if(
+            userData.role &&
+            userData.role!=="teacher"
+        ){
 
-            alert("यह Teacher Account नहीं है!");
+            alert(
+                "यह Teacher Account नहीं है!"
+            );
 
             await signOut(auth);
 
@@ -887,39 +1364,48 @@ onAuthStateChanged(auth,async function(user){
         currentTeacher=user;
 
 
-        document.getElementById("teacherName").innerText=
+        document
+        .getElementById("teacherName")
+        .innerText=
 
         "👨‍🏫 "+
         (
-            teacherData.name ||
+            userData.name ||
             user.email
         );
 
 
     }
 
+
     catch(error){
 
         console.error(error);
 
-        alert(
-            "Teacher Load Error: "+
-            error.message
-        );
+        document
+        .getElementById("teacherName")
+        .innerText=user.email;
+
+        currentTeacher=user;
 
     }
+
 
 });
 
 
 
-/* =====================================
+/* ==============================================
 CREATE STUDENT ACCOUNT
-===================================== */
+============================================== */
 
 document
 .getElementById("createStudentButton")
-.addEventListener("click",async function(){
+.addEventListener(
+
+"click",
+
+async function(){
 
 
     const button=this;
@@ -956,9 +1442,15 @@ document
     .trim();
 
 
-    /* TEST */
 
-    if(!name || !email || !password || !studentClass){
+    /* CHECK EMPTY */
+
+    if(
+        !name ||
+        !email ||
+        !password ||
+        !studentClass
+    ){
 
         showStudentStatus(
 
@@ -972,6 +1464,9 @@ document
 
     }
 
+
+
+    /* PASSWORD LENGTH */
 
     if(password.length<6){
 
@@ -988,11 +1483,14 @@ document
     }
 
 
+
+    /* TEACHER CHECK */
+
     if(!currentTeacher){
 
         showStudentStatus(
 
-            "⏳ Teacher account अभी load हो रहा है। 5 seconds बाद फिर कोशिश करें।",
+            "⏳ Teacher अभी Load हो रहा है। कृपया कुछ seconds बाद कोशिश करें।",
 
             "loading"
 
@@ -1001,6 +1499,7 @@ document
         return;
 
     }
+
 
 
     button.disabled=true;
@@ -1018,7 +1517,9 @@ document
     );
 
 
+
     let secondaryApp=null;
+
 
 
     try{
@@ -1044,6 +1545,7 @@ document
         );
 
 
+
         /* CREATE AUTH ACCOUNT */
 
         const credential=
@@ -1060,11 +1562,11 @@ document
 
 
         const studentUser=
-
         credential.user;
 
 
-        /* SAVE PROFILE TO FIRESTORE */
+
+        /* SAVE STUDENT DATA */
 
         await setDoc(
 
@@ -1095,14 +1597,13 @@ document
         );
 
 
-        /* LOGOUT SECONDARY AUTH */
+
+        /* LOGOUT SECOND AUTH */
 
         await signOut(
             secondaryAuth
         );
 
-
-        /* DELETE SECONDARY APP */
 
         await deleteApp(
             secondaryApp
@@ -1112,14 +1613,18 @@ document
         secondaryApp=null;
 
 
+
         showStudentStatus(
 
-            "🎉 Student Account Successfully Created! Email: "+email,
+            "🎉 Student Account Successfully Created!",
 
             "success"
 
         );
 
+
+
+        /* CLEAR FORM */
 
         document
         .getElementById("studentNameInput")
@@ -1148,23 +1653,31 @@ document
 
 
         console.error(
-            "STUDENT CREATE ERROR:",
+            "Student Create Error:",
             error
         );
 
 
-        let message=error.message;
+        let message=
+        error.message;
 
 
-        if(error.code==="auth/email-already-in-use"){
+
+        if(
+            error.code===
+            "auth/email-already-in-use"
+        ){
 
             message=
-            "यह Email पहले से registered है।";
+            "यह Email पहले से Registered है।";
 
         }
 
 
-        else if(error.code==="auth/invalid-email"){
+        if(
+            error.code===
+            "auth/invalid-email"
+        ){
 
             message=
             "Email सही नहीं है।";
@@ -1172,25 +1685,32 @@ document
         }
 
 
-        else if(error.code==="auth/weak-password"){
+        if(
+            error.code===
+            "auth/weak-password"
+        ){
 
             message=
-            "Password कमजोर है। कम से कम 6 characters रखें।";
+            "Password कम से कम 6 characters का रखें।";
 
         }
 
 
-        else if(error.code==="permission-denied"){
+        if(
+            error.code===
+            "permission-denied"
+        ){
 
             message=
-            "Firestore Permission Denied। Firestore Rules check करें।";
+            "Firestore Permission Denied। Firebase Rules Check करें।";
 
         }
+
 
 
         showStudentStatus(
 
-            "❌ Error: "+message,
+            "❌ "+message,
 
             "error"
 
@@ -1206,7 +1726,12 @@ document
                 );
 
             }
-            catch(e){}
+
+            catch(e){
+
+                console.log(e);
+
+            }
 
         }
 
@@ -1228,48 +1753,72 @@ document
 
 
 
-/* STUDENT LIST */
+/* ==============================================
+STUDENT LIST
+============================================== */
 
 const studentsQuery=
 
 query(
 
-    collection(db,"users"),
+collection(db,"users"),
 
-    where("role","==","student")
+where(
+    "role",
+    "==",
+    "student"
+)
 
 );
 
 
-onSnapshot(studentsQuery,function(snapshot){
+
+onSnapshot(
+
+studentsQuery,
+
+function(snapshot){
+
 
     let html="";
+
     let count=0;
+
 
 
     snapshot.forEach(function(item){
 
+
         count++;
 
-        const data=item.data();
+
+        const data=
+        item.data();
 
 
         html+=`
 
         <div class="list-item">
 
-        <h3>🎓 ${data.name || ""}</h3>
+            <h3>
+            🎓 ${data.name || "Student"}
+            </h3>
 
-        <p>📧 ${data.email || ""}</p>
+            <p>
+            📧 ${data.email || ""}
+            </p>
 
-        <p>🏫 ${data.class || ""}</p>
+            <p>
+            🏫 Class: ${data.class || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteStudent('${item.id}')">
+            <button
+            class="delete-btn"
+            onclick="deleteStudent('${item.id}')">
 
-        🗑 Delete
+            🗑 Delete Profile
 
-        </button>
+            </button>
 
         </div>
 
@@ -1278,22 +1827,36 @@ onSnapshot(studentsQuery,function(snapshot){
     });
 
 
-    document.getElementById("studentsList").innerHTML=
+
+    document
+    .getElementById("studentsList")
+    .innerHTML=
 
     html ||
-    "कोई Student नहीं मिला।";
+    "अभी कोई Student नहीं है।";
 
 
-    document.getElementById("studentCount").innerText=
-    count;
+    document
+    .getElementById("studentCount")
+    .innerText=count;
+
 
 });
 
 
 
-window.deleteStudent=async function(uid){
+window.deleteStudent=
+async function(uid){
 
-    if(!confirm("Student Profile Delete करना है?")){
+
+    const confirmDelete=
+
+    confirm(
+        "क्या Student Profile Delete करना है?"
+    );
+
+
+    if(!confirmDelete){
 
         return;
 
@@ -1302,38 +1865,69 @@ window.deleteStudent=async function(uid){
 
     try{
 
+
         await deleteDoc(
-            doc(db,"users",uid)
+
+            doc(
+                db,
+                "users",
+                uid
+            )
+
         );
 
-        alert("Student Profile Delete हो गया।");
+
+        alert(
+            "✅ Student Profile Delete हो गया।"
+        );
+
 
     }
+
 
     catch(error){
 
-        alert(error.message);
+        alert(
+            "Error: "+error.message
+        );
 
     }
+
 
 };
 
 
 
-/* HOMEWORK */
+/* ==============================================
+HOMEWORK
+============================================== */
 
-window.addHomework=async function(){
+window.addHomework=
+async function(){
+
 
     const subject=
-    document.getElementById("homeworkSubject").value.trim();
+
+    document
+    .getElementById("homeworkSubject")
+    .value
+    .trim();
+
 
     const text=
-    document.getElementById("homeworkText").value.trim();
+
+    document
+    .getElementById("homeworkText")
+    .value
+    .trim();
+
 
 
     if(!subject || !text){
 
-        alert("पूरा Homework भरें!");
+        alert(
+            "कृपया पूरा Homework भरें!"
+        );
 
         return;
 
@@ -1342,22 +1936,48 @@ window.addHomework=async function(){
 
     try{
 
+
         await addDoc(
-            collection(db,"homework"),
+
+            collection(
+                db,
+                "homework"
+            ),
+
             {
+
                 subject:subject,
+
                 text:text,
-                teacherId:currentTeacher.uid,
-                createdAt:serverTimestamp()
+
+                teacherId:
+                currentTeacher.uid,
+
+                createdAt:
+                serverTimestamp()
+
             }
+
         );
 
-        alert("✅ Homework Published!");
 
-        document.getElementById("homeworkSubject").value="";
-        document.getElementById("homeworkText").value="";
+        alert(
+            "✅ Homework Published!"
+        );
+
+
+        document
+        .getElementById("homeworkSubject")
+        .value="";
+
+
+        document
+        .getElementById("homeworkText")
+        .value="";
+
 
     }
+
 
     catch(error){
 
@@ -1365,34 +1985,53 @@ window.addHomework=async function(){
 
     }
 
+
 };
 
 
-onSnapshot(collection(db,"homework"),function(snapshot){
 
-    document.getElementById("homeworkCount").innerText=
-    snapshot.size;
+onSnapshot(
+
+collection(db,"homework"),
+
+function(snapshot){
 
 
     let html="";
 
 
+    document
+    .getElementById("homeworkCount")
+    .innerText=snapshot.size;
+
+
+
     snapshot.forEach(function(item){
 
-        const d=item.data();
+
+        const d=
+        item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>📚 ${d.subject || ""}</h3>
+            <h3>
+            📚 ${d.subject || ""}
+            </h3>
 
-        <p>${d.text || ""}</p>
+            <p>
+            ${d.text || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteHomework('${item.id}')">
-        🗑 Delete
-        </button>
+            <button
+            class="delete-btn"
+            onclick="deleteHomework('${item.id}')">
+
+            🗑 Delete
+
+            </button>
 
         </div>
 
@@ -1401,15 +2040,20 @@ onSnapshot(collection(db,"homework"),function(snapshot){
     });
 
 
-    document.getElementById("homeworkTeacherList").innerHTML=
+    document
+    .getElementById("homeworkTeacherList")
+    .innerHTML=
 
     html ||
     "कोई Homework नहीं है।";
 
+
 });
 
 
-window.deleteHomework=async function(id){
+
+window.deleteHomework=
+async function(id){
 
     await deleteDoc(
         doc(db,"homework",id)
@@ -1419,73 +2063,137 @@ window.deleteHomework=async function(id){
 
 
 
-/* NOTICES */
+/* ==============================================
+NOTICES
+============================================== */
 
-window.addNotice=async function(){
+window.addNotice=
+async function(){
+
 
     const title=
-    document.getElementById("noticeTitle").value.trim();
+
+    document
+    .getElementById("noticeTitle")
+    .value
+    .trim();
+
 
     const text=
-    document.getElementById("noticeText").value.trim();
+
+    document
+    .getElementById("noticeText")
+    .value
+    .trim();
 
 
     if(!title || !text){
 
-        alert("पूरा Notice भरें!");
+        alert(
+            "कृपया पूरा Notice भरें!"
+        );
 
         return;
 
     }
 
 
-    await addDoc(
-
-        collection(db,"notices"),
-
-        {
-            title:title,
-            text:text,
-            teacherId:currentTeacher.uid,
-            createdAt:serverTimestamp()
-        }
-
-    );
+    try{
 
 
-    alert("✅ Notice Published!");
+        await addDoc(
 
-    document.getElementById("noticeTitle").value="";
-    document.getElementById("noticeText").value="";
+            collection(
+                db,
+                "notices"
+            ),
+
+            {
+
+                title:title,
+
+                text:text,
+
+                teacherId:
+                currentTeacher.uid,
+
+                createdAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        alert(
+            "✅ Notice Published!"
+        );
+
+
+        document
+        .getElementById("noticeTitle")
+        .value="";
+
+
+        document
+        .getElementById("noticeText")
+        .value="";
+
+
+    }
+
+    catch(error){
+
+        alert(error.message);
+
+    }
+
 
 };
 
 
-onSnapshot(collection(db,"notices"),function(snapshot){
 
-    document.getElementById("noticeCount").innerText=
-    snapshot.size;
+onSnapshot(
+
+collection(db,"notices"),
+
+function(snapshot){
 
 
     let html="";
 
 
+    document
+    .getElementById("noticeCount")
+    .innerText=snapshot.size;
+
+
+
     snapshot.forEach(function(item){
 
+
         const d=item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>📢 ${d.title || ""}</h3>
+            <h3>
+            📢 ${d.title || ""}
+            </h3>
 
-        <p>${d.text || ""}</p>
+            <p>
+            ${d.text || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteNotice('${item.id}')">
-        🗑 Delete
-        </button>
+            <button
+            class="delete-btn"
+            onclick="deleteNotice('${item.id}')">
+
+            🗑 Delete
+
+            </button>
 
         </div>
 
@@ -1494,15 +2202,20 @@ onSnapshot(collection(db,"notices"),function(snapshot){
     });
 
 
-    document.getElementById("noticeTeacherList").innerHTML=
+    document
+    .getElementById("noticeTeacherList")
+    .innerHTML=
 
     html ||
     "कोई Notice नहीं है।";
 
+
 });
 
 
-window.deleteNotice=async function(id){
+
+window.deleteNotice=
+async function(id){
 
     await deleteDoc(
         doc(db,"notices",id)
@@ -1512,20 +2225,35 @@ window.deleteNotice=async function(id){
 
 
 
-/* NOTES */
+/* ==============================================
+FREE NOTES
+============================================== */
 
-window.addNotes=async function(){
+window.addNotes=
+async function(){
+
 
     const title=
-    document.getElementById("notesTitle").value.trim();
+
+    document
+    .getElementById("notesTitle")
+    .value
+    .trim();
+
 
     const text=
-    document.getElementById("notesText").value.trim();
+
+    document
+    .getElementById("notesText")
+    .value
+    .trim();
 
 
     if(!title || !text){
 
-        alert("पूरा Notes भरें!");
+        alert(
+            "कृपया Notes भरें!"
+        );
 
         return;
 
@@ -1534,47 +2262,83 @@ window.addNotes=async function(){
 
     await addDoc(
 
-        collection(db,"notes"),
+        collection(
+            db,
+            "notes"
+        ),
 
         {
+
             title:title,
+
             text:text,
-            teacherId:currentTeacher.uid,
-            createdAt:serverTimestamp()
+
+            teacherId:
+            currentTeacher.uid,
+
+            createdAt:
+            serverTimestamp()
+
         }
 
     );
 
 
-    alert("✅ Notes Published!");
+    alert(
+        "✅ Notes Published!"
+    );
 
-    document.getElementById("notesTitle").value="";
-    document.getElementById("notesText").value="";
+
+    document
+    .getElementById("notesTitle")
+    .value="";
+
+
+    document
+    .getElementById("notesText")
+    .value="";
+
 
 };
 
 
-onSnapshot(collection(db,"notes"),function(snapshot){
+
+onSnapshot(
+
+collection(db,"notes"),
+
+function(snapshot){
+
 
     let html="";
 
 
     snapshot.forEach(function(item){
 
-        const d=item.data();
+
+        const d=
+        item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>📖 ${d.title || ""}</h3>
+            <h3>
+            📖 ${d.title || ""}
+            </h3>
 
-        <p>${d.text || ""}</p>
+            <p>
+            ${d.text || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteNotes('${item.id}')">
-        🗑 Delete
-        </button>
+            <button
+            class="delete-btn"
+            onclick="deleteNotes('${item.id}')">
+
+            🗑 Delete
+
+            </button>
 
         </div>
 
@@ -1583,15 +2347,20 @@ onSnapshot(collection(db,"notes"),function(snapshot){
     });
 
 
-    document.getElementById("notesTeacherList").innerHTML=
+    document
+    .getElementById("notesTeacherList")
+    .innerHTML=
 
     html ||
     "कोई Notes नहीं है।";
 
+
 });
 
 
-window.deleteNotes=async function(id){
+
+window.deleteNotes=
+async function(id){
 
     await deleteDoc(
         doc(db,"notes",id)
@@ -1601,23 +2370,47 @@ window.deleteNotes=async function(id){
 
 
 
-/* TIMETABLE */
+/* ==============================================
+TIMETABLE
+============================================== */
 
-window.addTimetable=async function(){
+window.addTimetable=
+async function(){
+
 
     const className=
-    document.getElementById("timeClass").value.trim();
+
+    document
+    .getElementById("timeClass")
+    .value
+    .trim();
+
 
     const day=
-    document.getElementById("timeDay").value.trim();
+
+    document
+    .getElementById("timeDay")
+    .value
+    .trim();
+
 
     const text=
-    document.getElementById("timeText").value.trim();
+
+    document
+    .getElementById("timeText")
+    .value
+    .trim();
 
 
-    if(!className || !day || !text){
+    if(
+        !className ||
+        !day ||
+        !text
+    ){
 
-        alert("पूरा Timetable भरें!");
+        alert(
+            "कृपया पूरा Timetable भरें!"
+        );
 
         return;
 
@@ -1626,50 +2419,94 @@ window.addTimetable=async function(){
 
     await addDoc(
 
-        collection(db,"timetable"),
+        collection(
+            db,
+            "timetable"
+        ),
 
         {
+
             class:className,
+
             day:day,
+
             text:text,
-            createdAt:serverTimestamp()
+
+            teacherId:
+            currentTeacher.uid,
+
+            createdAt:
+            serverTimestamp()
+
         }
 
     );
 
 
-    alert("✅ Timetable Published!");
+    alert(
+        "✅ Timetable Published!"
+    );
 
-    document.getElementById("timeClass").value="";
-    document.getElementById("timeDay").value="";
-    document.getElementById("timeText").value="";
+
+    document
+    .getElementById("timeClass")
+    .value="";
+
+
+    document
+    .getElementById("timeDay")
+    .value="";
+
+
+    document
+    .getElementById("timeText")
+    .value="";
+
 
 };
 
 
-onSnapshot(collection(db,"timetable"),function(snapshot){
+
+onSnapshot(
+
+collection(db,"timetable"),
+
+function(snapshot){
+
 
     let html="";
 
 
     snapshot.forEach(function(item){
 
-        const d=item.data();
+
+        const d=
+        item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>🏫 ${d.class || ""}</h3>
+            <h3>
+            🏫 ${d.class || ""}
+            </h3>
 
-        <p>📅 ${d.day || ""}</p>
+            <p>
+            📅 ${d.day || ""}
+            </p>
 
-        <p>${d.text || ""}</p>
+            <p>
+            ${d.text || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteTimetable('${item.id}')">
-        🗑 Delete
-        </button>
+            <button
+            class="delete-btn"
+            onclick="deleteTimetable('${item.id}')">
+
+            🗑 Delete
+
+            </button>
 
         </div>
 
@@ -1678,15 +2515,20 @@ onSnapshot(collection(db,"timetable"),function(snapshot){
     });
 
 
-    document.getElementById("timetableTeacherList").innerHTML=
+    document
+    .getElementById("timetableTeacherList")
+    .innerHTML=
 
     html ||
     "कोई Timetable नहीं है।";
 
+
 });
 
 
-window.deleteTimetable=async function(id){
+
+window.deleteTimetable=
+async function(id){
 
     await deleteDoc(
         doc(db,"timetable",id)
@@ -1696,28 +2538,59 @@ window.deleteTimetable=async function(id){
 
 
 
-/* TEST */
+/* ==============================================
+FREE TEST
+============================================== */
 
-window.addTest=async function(){
+window.addTest=
+async function(){
+
 
     const title=
-    document.getElementById("testTitle").value.trim();
+
+    document
+    .getElementById("testTitle")
+    .value
+    .trim();
+
 
     const time=
+
     parseInt(
-        document.getElementById("testTime").value
+
+        document
+        .getElementById("testTime")
+        .value
+
     );
 
+
     const question=
-    document.getElementById("testQuestion").value.trim();
+
+    document
+    .getElementById("testQuestion")
+    .value
+    .trim();
+
 
     const answer=
-    document.getElementById("testAnswer").value.trim();
+
+    document
+    .getElementById("testAnswer")
+    .value
+    .trim();
 
 
-    if(!title || !time || !question || !answer){
+    if(
+        !title ||
+        !time ||
+        !question ||
+        !answer
+    ){
 
-        alert("पूरा Test भरें!");
+        alert(
+            "कृपया पूरा Test भरें!"
+        );
 
         return;
 
@@ -1726,57 +2599,108 @@ window.addTest=async function(){
 
     await addDoc(
 
-        collection(db,"tests"),
+        collection(
+            db,
+            "tests"
+        ),
 
         {
+
             title:title,
+
             time:time,
+
             question:question,
+
             answer:answer,
-            teacherId:currentTeacher.uid,
-            createdAt:serverTimestamp()
+
+            teacherId:
+            currentTeacher.uid,
+
+            createdAt:
+            serverTimestamp()
+
         }
 
     );
 
 
-    alert("✅ Test Published!");
+    alert(
+        "✅ Test Published!"
+    );
 
-    document.getElementById("testTitle").value="";
-    document.getElementById("testTime").value="10";
-    document.getElementById("testQuestion").value="";
-    document.getElementById("testAnswer").value="";
+
+    document
+    .getElementById("testTitle")
+    .value="";
+
+
+    document
+    .getElementById("testTime")
+    .value="10";
+
+
+    document
+    .getElementById("testQuestion")
+    .value="";
+
+
+    document
+    .getElementById("testAnswer")
+    .value="";
+
 
 };
 
 
-onSnapshot(collection(db,"tests"),function(snapshot){
 
-    document.getElementById("testCount").innerText=
-    snapshot.size;
+onSnapshot(
+
+collection(db,"tests"),
+
+function(snapshot){
 
 
     let html="";
 
 
+    document
+    .getElementById("testCount")
+    .innerText=snapshot.size;
+
+
+
     snapshot.forEach(function(item){
 
-        const d=item.data();
+
+        const d=
+        item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>📝 ${d.title || ""}</h3>
+            <h3>
+            📝 ${d.title || ""}
+            </h3>
 
-        <p>⏰ ${d.time || 10} Minutes</p>
+            <p>
+            ⏰ Time:
+            ${d.time || 10} Minutes
+            </p>
 
-        <p>❓ ${d.question || ""}</p>
+            <p>
+            ❓ ${d.question || ""}
+            </p>
 
-        <button class="delete-btn"
-        onclick="deleteTest('${item.id}')">
-        🗑 Delete
-        </button>
+            <button
+            class="delete-btn"
+            onclick="deleteTest('${item.id}')">
+
+            🗑 Delete
+
+            </button>
 
         </div>
 
@@ -1785,15 +2709,20 @@ onSnapshot(collection(db,"tests"),function(snapshot){
     });
 
 
-    document.getElementById("testsTeacherList").innerHTML=
+    document
+    .getElementById("testsTeacherList")
+    .innerHTML=
 
     html ||
     "कोई Test नहीं है।";
 
+
 });
 
 
-window.deleteTest=async function(id){
+
+window.deleteTest=
+async function(id){
 
     await deleteDoc(
         doc(db,"tests",id)
@@ -1803,29 +2732,49 @@ window.deleteTest=async function(id){
 
 
 
-/* SCORES */
+/* ==============================================
+TEST SCORES
+============================================== */
 
-onSnapshot(collection(db,"scores"),function(snapshot){
+onSnapshot(
+
+collection(db,"scores"),
+
+function(snapshot){
+
 
     let html="";
 
 
     snapshot.forEach(function(item){
 
-        const d=item.data();
+
+        const d=
+        item.data();
+
 
         html+=`
 
         <div class="list-item">
 
-        <h3>🎓 ${d.studentName || "Student"}</h3>
+            <h3>
+            🎓 ${d.studentName || "Student"}
+            </h3>
 
-        <p>📝 Test: ${d.testTitle || ""}</p>
+            <p>
+            📧 ${d.studentEmail || ""}
+            </p>
 
-        <p>
-        📊 Score:
-        ${d.score || 0}/${d.total || 1}
-        </p>
+            <p>
+            📝 Test:
+            ${d.testTitle || ""}
+            </p>
+
+            <p>
+            📊 Score:
+            ${d.score || 0} /
+            ${d.total || 0}
+            </p>
 
         </div>
 
@@ -1834,31 +2783,239 @@ onSnapshot(collection(db,"scores"),function(snapshot){
     });
 
 
-    document.getElementById("scoresList").innerHTML=
+    document
+    .getElementById("scoresList")
+    .innerHTML=
 
     html ||
-    "अभी कोई Score नहीं है।";
+    "अभी कोई Test Score नहीं है।";
+
 
 });
 
 
 
-/* LOGOUT */
+/* ==============================================
+CHANGE PASSWORD
+============================================== */
 
-window.logoutUser=async function(){
+window.changeTeacherPassword=
+async function(){
 
-    if(confirm("क्या आप Logout करना चाहते हैं?")){
+
+    const newPassword=
+
+    document
+    .getElementById("newPassword")
+    .value;
+
+
+    const confirmPassword=
+
+    document
+    .getElementById("confirmPassword")
+    .value;
+
+
+
+    /* EMPTY CHECK */
+
+    if(
+        !newPassword ||
+        !confirmPassword
+    ){
+
+        showPasswordStatus(
+
+            "❌ दोनों Password भरें!",
+
+            "error"
+
+        );
+
+        return;
+
+    }
+
+
+
+    /* LENGTH CHECK */
+
+    if(newPassword.length<6){
+
+        showPasswordStatus(
+
+            "❌ Password कम से कम 6 characters का होना चाहिए!",
+
+            "error"
+
+        );
+
+        return;
+
+    }
+
+
+
+    /* MATCH CHECK */
+
+    if(
+        newPassword!==confirmPassword
+    ){
+
+        showPasswordStatus(
+
+            "❌ दोनों Password Match नहीं कर रहे हैं!",
+
+            "error"
+
+        );
+
+        return;
+
+    }
+
+
+
+    try{
+
+
+        if(!auth.currentUser){
+
+            showPasswordStatus(
+
+                "❌ कोई User Login नहीं है!",
+
+                "error"
+
+            );
+
+            return;
+
+        }
+
+
+        await updatePassword(
+
+            auth.currentUser,
+
+            newPassword
+
+        );
+
+
+        showPasswordStatus(
+
+            "🎉 Password Successfully Changed!",
+
+            "success"
+
+        );
+
+
+        document
+        .getElementById("newPassword")
+        .value="";
+
+
+        document
+        .getElementById("confirmPassword")
+        .value="";
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        let message=
+        error.message;
+
+
+        if(
+
+            error.code===
+
+            "auth/requires-recent-login"
+
+        ){
+
+            message=
+
+            "⚠️ Security के लिए पहले Logout करें और फिर दोबारा Login करके Password बदलें।";
+
+        }
+
+
+        showPasswordStatus(
+
+            "❌ "+message,
+
+            "error"
+
+        );
+
+
+    }
+
+
+};
+
+
+
+/* ==============================================
+LOGOUT
+============================================== */
+
+window.logoutUser=
+async function(){
+
+
+    const result=
+
+    confirm(
+        "क्या आप Logout करना चाहते हैं?"
+    );
+
+
+    if(!result){
+
+        return;
+
+    }
+
+
+    try{
+
 
         await signOut(auth);
 
-        window.location.href="login.html";
+
+        window.location.href=
+        "login.html";
+
 
     }
+
+
+    catch(error){
+
+        alert(
+            error.message
+        );
+
+    }
+
 
 };
 
 
 </script>
+
 
 </body>
 
