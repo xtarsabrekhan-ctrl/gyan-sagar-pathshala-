@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Gyan Sagar Pathshala</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#071a35,#1559a8);
+  padding:20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:420px;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.logo{
+  font-size:55px;
+}
+
+h1{
+  color:#071a35;
+  margin:10px 0 5px;
+}
+
+.subtitle{
+  color:#666;
+  margin-bottom:25px;
+}
+
+.login-choice{
+  display:flex;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.choice-btn{
+  width:50%;
+  padding:13px 8px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
+  background:#e9eef5;
+  color:#071a35;
+}
+
+.choice-btn.active{
+  background:#ffc400;
+}
+
+.login-form{
+  display:none;
+}
+
+.login-form.active{
+  display:block;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  margin:9px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+}
+
+.password-box{
+  position:relative;
+  width:100%;
+}
+
+.password-box input{
+  padding-right:50px;
+}
+
+.eye{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+  font-size:20px;
+  user-select:none;
+}
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#1559a8;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.login-btn:hover{
+  background:#071a35;
+}
+
+.message{
+  margin-top:12px;
+  font-weight:bold;
+}
+
+.back{
+  display:inline-block;
+  margin-top:20px;
+  text-decoration:none;
+  color:#1559a8;
+  font-weight:bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+  <div class="logo">📚</div>
+
+  <h1>Gyan Sagar Pathshala</h1>
+
+  <p class="subtitle">Teacher & Student Login Portal</p>
+
+
+  <!-- LOGIN BUTTONS -->
+
+  <div class="login-choice">
+
+    <button
+      type="button"
+      class="choice-btn active"
+      onclick="showLogin('teacher',this)">
+
+      👨‍🏫 Teacher
+
+    </button>
+
+
+    <button
+      type="button"
+      class="choice-btn"
+      onclick="showLogin('student',this)">
+
+      🎓 Student
+
+    </button>
+
+  </div>
+
+
+
+  <!-- =====================
+       TEACHER LOGIN
+  ====================== -->
+
+  <div
+    id="teacherForm"
+    class="login-form active">
+
+    <h2>👨‍🏫 Teacher Login</h2>
+
+
+    <form onsubmit="teacherLogin(event)">
+
+
+      <input
+        type="email"
+        id="teacherEmail"
+        placeholder="Enter Teacher Email ID"
+        required>
+
+
+      <div class="password-box">
+
+        <input
+          type="password"
+          id="teacherPassword"
+          placeholder="Enter Password"
+          required>
+
+
+        <span
+          class="eye"
+          onclick="togglePassword('teacherPassword',this)">
+
+          👁️
+
+        </span>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="login-btn">
+
+        🔐 Teacher Login
+
+      </button>
+
+
+    </form>
+
+
+    <div
+      id="teacherMessage"
+      class="message">
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       STUDENT LOGIN
+  ====================== -->
+
+  <div
+    id="studentForm"
+    class="login-form">
+
+    <h2>🎓 Student Login</h2>
+
+
+    <form onsubmit="studentLogin(event)">
+
+
+      <input
+        type="email"
+        id="studentEmail"
+        placeholder="Enter Student Email ID"
+        required>
+
+
+      <div class="password-box">
+
+        <input
+          type="password"
+          id="studentPassword"
+          placeholder="Enter Password"
+          required>
+
+
+        <span
+          class="eye"
+          onclick="togglePassword('studentPassword',this)">
+
+          👁️
+
+        </span>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="login-btn">
+
+        🔐 Student Login
+
+      </button>
+
+
+    </form>
+
+
+    <div
+      id="studentMessage"
+      class="message">
+
+    </div>
+
+  </div>
+
+
+
+  <!-- BACK BUTTON -->
+
+  <a
+    href="index.html"
+    class="back">
+
+    ← वापस Website पर जाएँ
+
+  </a>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   TEACHER / STUDENT SWITCH
+========================= */
+
+function showLogin(type,button){
+
+  document
+  .getElementById("teacherForm")
+  .classList
+  .remove("active");
+
+
+  document
+  .getElementById("studentForm")
+  .classList
+  .remove("active");
+
+
+  document
+  .querySelectorAll(".choice-btn")
+  .forEach(function(btn){
+
+    btn.classList.remove("active");
+
+  });
+
+
+  if(type==="teacher"){
+
+    document
+    .getElementById("teacherForm")
+    .classList
+    .add("active");
+
+  }
+
+  else{
+
+    document
+    .getElementById("studentForm")
+    .classList
+    .add("active");
+
+  }
+
+
+  button.classList.add("active");
+
+}
+
+
+
+/* =========================
+   PASSWORD SHOW / HIDE
+========================= */
+
+function togglePassword(id,icon){
+
+  let password=
+  document.getElementById(id);
+
+
+  if(password.type==="password"){
+
+    password.type="text";
+
+    icon.innerHTML="🙈";
+
+  }
+
+  else{
+
+    password.type="password";
+
+    icon.innerHTML="👁️";
+
+  }
+
+}
+
+
+
+/* =========================
+   TEACHER LOGIN
+========================= */
+
+function teacherLogin(event){
+
+  event.preventDefault();
+
+
+  let email=
+  document
+  .getElementById("teacherEmail")
+  .value
+  .trim();
+
+
+  let password=
+  document
+  .getElementById("teacherPassword")
+  .value
+  .trim();
+
+
+  /* =========================
+     TEACHER EMAIL & PASSWORD
+     इन्हें आप बदल सकते हैं
+  ========================= */
+
+  let correctEmail=
+  "teacher@gmail.com";
+
+
+  let correctPassword=
+  "123456";
+
+
+
+  if(
+    email===correctEmail &&
+    password===correctPassword
+  ){
+
+
+    document
+    .getElementById("teacherMessage")
+    .style.color="green";
+
+
+    document
+    .getElementById("teacherMessage")
+    .innerHTML=
+    "✅ Teacher Login सफल! Dashboard खुल रहा है...";
+
+
+    setTimeout(function(){
+
+      window.location.href=
+      "teacher-dashboard.html";
+
+    },1000);
+
+
+  }
+
+  else{
+
+
+    document
+    .getElementById("teacherMessage")
+    .style.color="red";
+
+
+    document
+    .getElementById("teacherMessage")
+    .innerHTML=
+    "❌ Email या Password गलत है!";
+
+
+  }
+
+}
+
+
+
+/* =========================
+   STUDENT LOGIN
+========================= */
+
+function studentLogin(event){
+
+  event.preventDefault();
+
+
+  let email=
+  document
+  .getElementById("studentEmail")
+  .value
+  .trim();
+
+
+  let password=
+  document
+  .getElementById("studentPassword")
+  .value
+  .trim();
+
+
+
+  /* Students की List */
+
+  let students=
+
+  JSON.parse(
+    localStorage.getItem("gspStudents")
+  ) || [];
+
+
+
+  /* सही Student खोजें */
+
+  let student=
+
+  students.find(function(s){
+
+    return (
+      s.email===email &&
+      s.password===password
+    );
+
+  });
+
+
+
+  if(student){
+
+
+    /* Current Student Save */
+
+    localStorage.setItem(
+
+      "currentStudent",
+
+      JSON.stringify(student)
+
+    );
+
+
+
+    document
+    .getElementById("studentMessage")
+    .style.color="green";
+
+
+    document
+    .getElementById("studentMessage")
+    .innerHTML=
+    "✅ Student Login सफल! Dashboard खुल रहा है...";
+
+
+
+    setTimeout(function(){
+
+      window.location.href=
+      "student-dashboard.html";
+
+    },1000);
+
+
+  }
+
+  else{
+
+
+    document
+    .getElementById("studentMessage")
+    .style.color="red";
+
+
+    document
+    .getElementById("studentMessage")
+    .innerHTML=
+    "❌ Email या Password गलत है!";
+
+
+  }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
