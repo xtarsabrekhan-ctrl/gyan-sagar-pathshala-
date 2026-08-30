@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Student Dashboard | Gyan Sagar Pathshala</title>
@@ -19,277 +22,294 @@ body{
     color:#172238;
 }
 
+
+/* HEADER */
+
 header{
     background:linear-gradient(135deg,#071a35,#1559a8);
     color:white;
     padding:15px 5%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 header h2{
     margin:0;
 }
 
-header p{
-    margin:5px 0 0;
-    font-size:13px;
-    color:#dce9f8;
+#studentName{
+    font-size:14px;
+    margin-top:5px;
 }
 
-.logout-btn{
-    background:#ffc400;
-    color:#071a35;
-    padding:10px 18px;
-    border-radius:25px;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-}
+
+/* LAYOUT */
 
 .container{
-    width:min(1200px,94%);
-    margin:auto;
-    padding:25px 0 50px;
+    display:flex;
+    min-height:calc(100vh - 75px);
 }
 
-.welcome{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    margin-bottom:25px;
+
+/* SIDEBAR */
+
+.sidebar{
+    width:240px;
+    background:#071a35;
+    padding:20px 12px;
+    color:white;
 }
 
-.welcome h1{
-    margin-top:0;
-    color:#071a35;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.stat{
-    background:white;
-    padding:18px;
+.sidebar h3{
     text-align:center;
-    border-radius:15px;
-    box-shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
-.number{
-    font-size:28px;
-    font-weight:bold;
-    color:#1559a8;
-}
+.menu-btn{
+    width:100%;
+    border:none;
+    background:transparent;
+    color:white;
 
-.menu{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
+    padding:13px;
+    margin:5px 0;
 
-.menu-card{
-    background:white;
-    padding:22px;
-    border-radius:18px;
-    box-shadow:0 7px 22px rgba(0,0,0,.08);
+    border-radius:8px;
+    text-align:left;
+
     cursor:pointer;
-    transition:.25s;
-    text-align:center;
+    font-size:15px;
 }
 
-.menu-card:hover{
-    transform:translateY(-5px);
+.menu-btn:hover,
+.menu-btn.active{
+    background:#1559a8;
 }
 
-.icon{
-    font-size:40px;
-}
 
-.menu-card h3{
-    color:#071a35;
-    margin:10px 0 8px;
+/* MAIN */
+
+.main{
+    flex:1;
+    padding:30px;
 }
 
 .section{
     display:none;
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    margin-top:25px;
 }
 
 .section.active{
     display:block;
 }
 
-button{
-    border:none;
-    padding:11px 17px;
-    border-radius:9px;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
-    margin:4px;
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:18px;
 }
 
-.back-btn{
-    background:#071a35;
-    color:white;
-    margin-bottom:15px;
+.card{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    text-align:center;
 }
 
-.green{
-    background:#25a244;
-    color:white;
+
+/* LIST */
+
+.list-box{
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    margin-top:20px;
 }
 
 .item{
-    padding:16px;
-    border:1px solid #e1e6ed;
-    border-radius:12px;
-    margin:12px 0;
-    background:#fafcff;
+    padding:15px 5px;
+    border-bottom:1px solid #eee;
 }
 
-.note{
-    background:#eef7ff;
-    padding:18px;
-    border-radius:12px;
-    margin:12px 0;
-    border-left:5px solid #1559a8;
-}
-
-.timetable-item{
-    background:#f3f9f4;
-    padding:16px;
-    border-radius:12px;
-    margin:10px 0;
-    border-left:5px solid #25a244;
-}
-
-.empty{
-    color:#777;
-    text-align:center;
-    padding:25px;
-}
-
-.profile-box{
-    background:#eef7ff;
-    border-radius:15px;
-    padding:20px;
-}
-
-.profile-row{
-    padding:12px;
-    border-bottom:1px solid #d9e4f0;
-}
-
-.profile-row:last-child{
+.item:last-child{
     border-bottom:none;
 }
 
-.attendance-box{
-    padding:16px;
-    border-radius:12px;
-    margin:10px 0;
-    border-left:5px solid #1559a8;
-    background:#fafcff;
+.item h3{
+    color:#1559a8;
+    margin:0 0 8px;
 }
 
-.present{
-    color:#16853b;
-    font-weight:bold;
-}
 
-.absent{
-    color:#d93025;
-    font-weight:bold;
-}
+/* TEST */
 
-.question-box{
-    background:#fff8e1;
-    padding:20px;
+.test-card{
+    background:white;
+
+    padding:25px;
+
     border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    margin-bottom:20px;
+}
+
+.question{
+    font-size:18px;
+    font-weight:bold;
     margin:15px 0;
 }
 
-.option{
-    display:block;
-    background:white;
+.answer-input{
+    width:100%;
     padding:13px;
-    margin:10px 0;
-    border:1px solid #ddd;
-    border-radius:9px;
+
+    border:1px solid #ccd6e0;
+
+    border-radius:8px;
+
+    font-size:16px;
+}
+
+.submit-btn{
+    margin-top:15px;
+
+    border:none;
+
+    background:#1559a8;
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:8px;
+
     cursor:pointer;
+
+    font-size:16px;
 }
 
-.option:hover{
-    background:#f0f6ff;
+.submit-btn:hover{
+    background:#071a35;
 }
 
-.score-card{
-    background:#eef7ff;
-    padding:20px;
-    border-radius:15px;
-    margin:12px 0;
-}
 
-.score-number{
-    font-size:30px;
+/* TIMER */
+
+.timer{
+    display:inline-block;
+
+    background:#d93025;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
     font-weight:bold;
-    color:#1559a8;
+
+    margin-bottom:10px;
 }
 
-@media(max-width:900px){
 
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
+/* LOGOUT */
 
-    .menu{
-        grid-template-columns:repeat(2,1fr);
-    }
+.logout-btn{
+    background:#d93025;
+    color:white;
 
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
 }
 
-@media(max-width:520px){
 
-    header{
-        justify-content:center;
-        text-align:center;
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .container{
+        flex-direction:column;
     }
 
-    .stats,
-    .menu{
-        grid-template-columns:1fr;
+    .sidebar{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px;
+    }
+
+    .sidebar h3{
+        width:100%;
+    }
+
+    .menu-btn{
+        width:auto;
+        flex:1;
+        min-width:130px;
+    }
+
+    .main{
+        padding:18px;
     }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <div>
-<h2>📚 Gyan Sagar Pathshala</h2>
-<p>Student Learning Portal</p>
+
+<h2>🎓 Gyan Sagar Pathshala</h2>
+
+<div id="studentName">
+Loading...
 </div>
 
-<button class="logout-btn" onclick="logout()">
+</div>
+
+
+<button
+class="logout-btn"
+onclick="logoutUser()">
+
 🚪 Logout
+
 </button>
 
 </header>
@@ -297,384 +317,512 @@ button{
 
 <div class="container">
 
-<div class="welcome">
 
-<h1 id="welcomeName">
-नमस्ते Student 👋
-</h1>
+<!-- SIDEBAR -->
 
-<p id="welcomeClass">
-Gyan Sagar Pathshala में आपका स्वागत है।
+<div class="sidebar">
+
+<h3>Student Portal</h3>
+
+
+<button
+class="menu-btn active"
+onclick="showSection('home',this)">
+
+🏠 Dashboard
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('homework',this)">
+
+📚 Homework
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('notices',this)">
+
+📢 Notices
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('notes',this)">
+
+📖 Free Notes
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('timetable',this)">
+
+🗓️ Timetable
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('tests',this)">
+
+📝 Free Test
+
+</button>
+
+
+<button
+class="menu-btn"
+onclick="showSection('scores',this)">
+
+📊 My Scores
+
+</button>
+
+
+</div>
+
+
+<div class="main">
+
+
+<!-- HOME -->
+
+<div
+id="home"
+class="section active">
+
+<h1>👋 Welcome Student</h1>
+
+<p>
+Gyan Sagar Pathshala Online Student Portal
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>📚 Homework</h3>
+
+<p id="homeworkCount">
+0
 </p>
 
 </div>
 
 
-<div class="stats">
+<div class="card">
 
-<div class="stat">
-<div class="number" id="homeworkCount">0</div>
-<div>📝 Homework</div>
-</div>
+<h3>📢 Notices</h3>
 
-<div class="stat">
-<div class="number" id="noticeCount">0</div>
-<div>📢 Notices</div>
-</div>
-
-<div class="stat">
-<div class="number" id="noteCount">0</div>
-<div>📚 Free Notes</div>
-</div>
-
-<div class="stat">
-<div class="number" id="testCount">0</div>
-<div>📝 Questions</div>
-</div>
+<p id="noticeCount">
+0
+</p>
 
 </div>
 
 
-<div class="menu">
+<div class="card">
 
-<div class="menu-card" onclick="showSection('profile')">
-<div class="icon">👤</div>
-<h3>My Profile</h3>
-<p>अपनी जानकारी देखें</p>
-</div>
+<h3>📝 Tests</h3>
 
-<div class="menu-card" onclick="showSection('homework')">
-<div class="icon">📝</div>
-<h3>Homework</h3>
-<p>Homework देखें</p>
-</div>
-
-<div class="menu-card" onclick="showSection('notices')">
-<div class="icon">📢</div>
-<h3>Notices</h3>
-<p>Latest Notices</p>
-</div>
-
-<div class="menu-card" onclick="showSection('attendance')">
-<div class="icon">📅</div>
-<h3>My Attendance</h3>
-<p>Attendance देखें</p>
-</div>
-
-<div class="menu-card" onclick="showSection('test')">
-<div class="icon">📝</div>
-<h3>Free Test</h3>
-<p>Online Test दें</p>
-</div>
-
-<div class="menu-card" onclick="showSection('scores')">
-<div class="icon">📊</div>
-<h3>My Scores</h3>
-<p>Result देखें</p>
-</div>
-
-<div class="menu-card" onclick="showSection('notes')">
-<div class="icon">📚</div>
-<h3>Free Notes</h3>
-<p>Study Notes</p>
-</div>
-
-<div class="menu-card" onclick="showSection('timetable')">
-<div class="icon">🗓️</div>
-<h3>My Timetable</h3>
-<p>Class Routine</p>
-</div>
+<p id="testCount">
+0
+</p>
 
 </div>
 
 
-<!-- PROFILE -->
+<div class="card">
 
-<div class="section" id="profile">
+<h3>📊 My Scores</h3>
 
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
+<p id="scoreCount">
+0
+</p>
 
-<h2>👤 My Profile</h2>
+</div>
 
-<div class="profile-box" id="profileData"></div>
+</div>
 
 </div>
 
 
 <!-- HOMEWORK -->
 
-<div class="section" id="homework">
+<div
+id="homework"
+class="section">
 
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
+<h1>📚 My Homework</h1>
 
-<h2>📝 Homework</h2>
+<div
+class="list-box"
+id="homeworkList">
 
-<div id="homeworkList"></div>
+Loading...
+
+</div>
 
 </div>
 
 
 <!-- NOTICES -->
 
-<div class="section" id="notices">
+<div
+id="notices"
+class="section">
 
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
+<h1>📢 Notices</h1>
 
-<h2>📢 Latest Notices</h2>
+<div
+class="list-box"
+id="noticeList">
 
-<div id="noticeList"></div>
-
-</div>
-
-
-<!-- ATTENDANCE -->
-
-<div class="section" id="attendance">
-
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
-
-<h2>📅 My Attendance</h2>
-
-<div id="attendanceList"></div>
+Loading...
 
 </div>
-
-
-<!-- TEST -->
-
-<div class="section" id="test">
-
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
-
-<h2>📝 Free Test</h2>
-
-<div id="testArea"></div>
-
-</div>
-
-
-<!-- SCORES -->
-
-<div class="section" id="scores">
-
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
-
-<h2>📊 My Test Scores</h2>
-
-<div id="scoreList"></div>
 
 </div>
 
 
 <!-- NOTES -->
 
-<div class="section" id="notes">
+<div
+id="notes"
+class="section">
 
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
+<h1>📖 Free Notes</h1>
 
-<h2>📚 Free Notes</h2>
+<div
+class="list-box"
+id="notesList">
 
-<div id="notesList"></div>
+Loading...
+
+</div>
 
 </div>
 
 
 <!-- TIMETABLE -->
 
-<div class="section" id="timetable">
+<div
+id="timetable"
+class="section">
 
-<button class="back-btn" onclick="closeSections()">
-← Back
-</button>
+<h1>🗓️ Timetable</h1>
 
-<h2>🗓️ My Class Timetable</h2>
+<div
+class="list-box"
+id="timetableList">
 
-<div id="timetableList"></div>
+Loading...
 
 </div>
 
 </div>
 
 
-<script>
+<!-- TESTS -->
 
-/* CURRENT STUDENT */
+<div
+id="tests"
+class="section">
 
-let currentStudent = JSON.parse(
-    localStorage.getItem("currentStudent")
-);
+<h1>📝 Free Tests</h1>
 
+<div id="testsList">
 
-/* LOGIN CHECK */
+Loading...
 
-if(!currentStudent){
+</div>
 
-    alert("कृपया पहले Student Login करें!");
-
-    window.location.href="teacher-login.html";
-
-}
+</div>
 
 
-/* LOAD DATA */
+<!-- SCORES -->
 
-let homework = JSON.parse(
-    localStorage.getItem("gspHomework")
-) || [];
+<div
+id="scores"
+class="section">
 
+<h1>📊 My Test Scores</h1>
 
-let notices = JSON.parse(
-    localStorage.getItem("gspNotices")
-) || [];
+<div
+class="list-box"
+id="scoresList">
 
+Loading...
 
-let notes = JSON.parse(
-    localStorage.getItem("gspNotes")
-) || [];
+</div>
 
-
-let timetable = JSON.parse(
-    localStorage.getItem("gspTimetable")
-) || [];
+</div>
 
 
-let questions = JSON.parse(
-    localStorage.getItem("gspQuestions")
-) || [];
+</div>
+
+</div>
 
 
-let allAttendance = JSON.parse(
-    localStorage.getItem("gspAttendance")
-) || {};
+
+<script type="module">
 
 
-let scores = JSON.parse(
-    localStorage.getItem("gspScores")
-) || [];
+/* ======================================
+FIREBASE CONFIG
+====================================== */
 
+import {
 
-/* WELCOME */
-
-if(currentStudent){
-
-    document.getElementById("welcomeName").innerHTML =
-        "नमस्ते, " + currentStudent.name + " 👋";
-
-    document.getElementById("welcomeClass").innerHTML =
-        "Class: " + currentStudent.class +
-        " | Gyan Sagar Pathshala";
+auth,
+db
 
 }
 
+from "./firebase-config.js";
 
-/* SHOW SECTION */
 
-function showSection(id){
+/* ======================================
+AUTH
+====================================== */
 
-    closeSections();
+import {
 
-    document.getElementById(id).classList.add("active");
-
-    if(id==="profile") displayProfile();
-
-    if(id==="homework") displayHomework();
-
-    if(id==="notices") displayNotices();
-
-    if(id==="attendance") displayAttendance();
-
-    if(id==="test") displayTest();
-
-    if(id==="scores") displayScores();
-
-    if(id==="notes") displayNotes();
-
-    if(id==="timetable") displayTimetable();
+onAuthStateChanged,
+signOut
 
 }
 
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-function closeSections(){
 
-    document.querySelectorAll(".section")
-    .forEach(function(section){
+/* ======================================
+FIRESTORE
+====================================== */
 
-        section.classList.remove("active");
+import {
+
+collection,
+doc,
+getDoc,
+addDoc,
+onSnapshot,
+serverTimestamp
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ======================================
+CURRENT STUDENT
+====================================== */
+
+let currentStudent = null;
+
+let currentStudentData = null;
+
+
+/* ======================================
+AUTH CHECK
+====================================== */
+
+onAuthStateChanged(
+
+auth,
+
+async(user)=>{
+
+
+    if(!user){
+
+        window.location.href =
+        "login.html";
+
+        return;
+
+    }
+
+
+    try{
+
+
+        const userSnap =
+
+        await getDoc(
+
+            doc(
+                db,
+                "users",
+                user.uid
+            )
+
+        );
+
+
+        if(!userSnap.exists()){
+
+            alert(
+            "Student Profile नहीं मिला!"
+            );
+
+            window.location.href =
+            "login.html";
+
+            return;
+
+        }
+
+
+        const data =
+        userSnap.data();
+
+
+        if(data.role !== "student"){
+
+            alert(
+            "यह Student Account नहीं है!"
+            );
+
+            window.location.href =
+            "login.html";
+
+            return;
+
+        }
+
+
+        currentStudent =
+        user;
+
+
+        currentStudentData =
+        data;
+
+
+        document
+        .getElementById("studentName")
+        .innerHTML =
+
+        "🎓 " +
+
+        (
+            data.name ||
+            user.email
+        );
+
+
+        loadScores();
+
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert(
+        "Error: " +
+        error.message
+        );
+
+    }
+
+
+});
+
+
+/* ======================================
+MENU
+====================================== */
+
+window.showSection =
+function(sectionId,button){
+
+
+    document
+    .querySelectorAll(".section")
+    .forEach(section=>{
+
+        section
+        .classList
+        .remove("active");
 
     });
 
-}
+
+    document
+    .getElementById(sectionId)
+    .classList
+    .add("active");
 
 
-/* PROFILE */
+    document
+    .querySelectorAll(".menu-btn")
+    .forEach(btn=>{
 
-function displayProfile(){
+        btn
+        .classList
+        .remove("active");
 
-    document.getElementById("profileData").innerHTML = `
-
-        <div class="profile-row">
-        <b>👤 Name:</b> ${currentStudent.name || ""}
-        </div>
-
-        <div class="profile-row">
-        <b>📱 Mobile:</b> ${currentStudent.mobile || ""}
-        </div>
-
-        <div class="profile-row">
-        <b>🏫 Class:</b> ${currentStudent.class || ""}
-        </div>
-
-        <div class="profile-row">
-        <b>📧 Email:</b> ${currentStudent.email || ""}
-        </div>
-
-    `;
-
-}
+    });
 
 
-/* HOMEWORK */
+    if(button){
 
-function displayHomework(){
+        button
+        .classList
+        .add("active");
 
-    let output=document.getElementById("homeworkList");
-
-    if(homework.length===0){
-
-        output.innerHTML='<div class="empty">अभी कोई Homework नहीं है।</div>';
-
-        return;
     }
 
-    let html="";
+};
 
-    homework.forEach(function(item){
 
-        html+=`
+/* ======================================
+HOMEWORK LIVE
+====================================== */
+
+onSnapshot(
+
+collection(db,"homework"),
+
+(snapshot)=>{
+
+
+    let html = "";
+
+
+    snapshot.forEach(item=>{
+
+
+        const data =
+        item.data();
+
+
+        html += `
 
         <div class="item">
 
-        <h3>📚 ${item.subject}</h3>
+        <h3>
+        📚 ${data.subject || ""}
+        </h3>
 
-        <p>${item.text}</p>
-
-        <small>
-        📅 Last Date: ${item.date}
-        </small>
+        <p>
+        ${data.text || ""}
+        </p>
 
         </div>
 
@@ -682,35 +830,57 @@ function displayHomework(){
 
     });
 
-    output.innerHTML=html;
 
-}
+    document
+    .getElementById("homeworkList")
+    .innerHTML =
+
+    html ||
+
+    "कोई Homework नहीं है।";
 
 
-/* NOTICES */
+    document
+    .getElementById("homeworkCount")
+    .innerHTML =
+    snapshot.size;
 
-function displayNotices(){
 
-    let output=document.getElementById("noticeList");
+});
 
-    if(notices.length===0){
 
-        output.innerHTML='<div class="empty">अभी कोई Notice नहीं है।</div>';
+/* ======================================
+NOTICES LIVE
+====================================== */
 
-        return;
-    }
+onSnapshot(
 
-    let html="";
+collection(db,"notices"),
 
-    notices.forEach(function(item){
+(snapshot)=>{
 
-        html+=`
+
+    let html = "";
+
+
+    snapshot.forEach(item=>{
+
+
+        const data =
+        item.data();
+
+
+        html += `
 
         <div class="item">
 
-        <h3>📢 ${item.title}</h3>
+        <h3>
+        📢 ${data.title || ""}
+        </h3>
 
-        <p>${item.text}</p>
+        <p>
+        ${data.text || ""}
+        </p>
 
         </div>
 
@@ -718,62 +888,134 @@ function displayNotices(){
 
     });
 
-    output.innerHTML=html;
 
-}
+    document
+    .getElementById("noticeList")
+    .innerHTML =
 
+    html ||
 
-/* ATTENDANCE */
-
-function displayAttendance(){
-
-    let output=document.getElementById("attendanceList");
-
-    let html="";
-
-    let found=false;
-
-    Object.keys(allAttendance)
-    .sort()
-    .reverse()
-    .forEach(function(date){
-
-        let records=allAttendance[date];
-
-        let record=records.find(function(item){
-
-            return item.studentId == currentStudent.id;
-
-        });
-
-        if(record){
-
-            found=true;
-
-            let statusClass=
-
-                record.status==="Present"
-
-                ? "present"
-
-                : "absent";
+    "कोई Notice नहीं है।";
 
 
-            html+=`
+    document
+    .getElementById("noticeCount")
+    .innerHTML =
+    snapshot.size;
 
-            <div class="attendance-box">
 
-            <b>📅 Date:</b> ${date}
+});
 
-            <br><br>
 
-            <span class="${statusClass}">
+/* ======================================
+NOTES LIVE
+====================================== */
 
-            ${record.status==="Present"
-            ? "✅ Present"
-            : "❌ Absent"}
+onSnapshot(
 
-            </span>
+collection(db,"notes"),
+
+(snapshot)=>{
+
+
+    let html = "";
+
+
+    snapshot.forEach(item=>{
+
+
+        const data =
+        item.data();
+
+
+        html += `
+
+        <div class="item">
+
+        <h3>
+        📖 ${data.title || ""}
+        </h3>
+
+        <p>
+        ${data.text || ""}
+        </p>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document
+    .getElementById("notesList")
+    .innerHTML =
+
+    html ||
+
+    "कोई Free Notes नहीं है।";
+
+
+});
+
+
+/* ======================================
+TIMETABLE LIVE
+====================================== */
+
+onSnapshot(
+
+collection(db,"timetable"),
+
+(snapshot)=>{
+
+
+    let html = "";
+
+
+    snapshot.forEach(item=>{
+
+
+        const data =
+        item.data();
+
+
+        /*
+        अगर Class सेट है
+        तो उसी Class का Timetable दिखाएं
+        */
+
+        if(
+
+            !currentStudentData ||
+
+            !currentStudentData.class ||
+
+            data.class ===
+            currentStudentData.class
+
+        ){
+
+
+            html += `
+
+            <div class="item">
+
+            <h3>
+            🏫 ${data.class || ""}
+            </h3>
+
+            <p>
+
+            📅 ${data.day || ""}
+
+            </p>
+
+            <p>
+
+            ${data.text || ""}
+
+            </p>
 
             </div>
 
@@ -781,74 +1023,129 @@ function displayAttendance(){
 
         }
 
+
     });
 
-    if(!found){
 
-        html='<div class="empty">Attendance अभी उपलब्ध नहीं है।</div>';
+    document
+    .getElementById("timetableList")
+    .innerHTML =
 
-    }
+    html ||
 
-    output.innerHTML=html;
-
-}
-
-
-/* FREE TEST */
-
-function displayTest(){
-
-    let output=document.getElementById("testArea");
-
-    if(questions.length===0){
-
-        output.innerHTML='<div class="empty">अभी कोई Free Test उपलब्ध नहीं है।</div>';
-
-        return;
-    }
-
-    let html="<h3>कुल Questions: "+questions.length+"</h3>";
-
-    html+='<form id="testForm">';
+    "कोई Timetable नहीं है।";
 
 
-    questions.forEach(function(q,index){
+});
 
-        html+=`
 
-        <div class="question-box">
+/* ======================================
+TESTS LIVE
+====================================== */
 
-        <h3>
-        Q${index+1}. ${q.question}
-        </h3>
+onSnapshot(
 
-        <label class="option">
-        <input type="radio"
-        name="question${index}"
-        value="A">
-        A. ${q.a}
-        </label>
+collection(db,"tests"),
 
-        <label class="option">
-        <input type="radio"
-        name="question${index}"
-        value="B">
-        B. ${q.b}
-        </label>
+(snapshot)=>{
 
-        <label class="option">
-        <input type="radio"
-        name="question${index}"
-        value="C">
-        C. ${q.c}
-        </label>
 
-        <label class="option">
-        <input type="radio"
-        name="question${index}"
-        value="D">
-        D. ${q.d}
-        </label>
+    let html = "";
+
+
+    document
+    .getElementById("testCount")
+    .innerHTML =
+    snapshot.size;
+
+
+    snapshot.forEach(item=>{
+
+
+        const data =
+        item.data();
+
+
+        html += `
+
+        <div class="test-card">
+
+        <h2>
+        📝 ${data.title || "Test"}
+        </h2>
+
+
+        <div>
+
+        ⏰ Time:
+
+        ${data.time || 10}
+
+        Minutes
+
+        </div>
+
+
+        <br>
+
+
+        <div
+        class="timer"
+        id="timer-${item.id}">
+
+        Ready
+
+        </div>
+
+
+        <div
+        class="question">
+
+        ❓ ${data.question || ""}
+
+        </div>
+
+
+        <input
+
+        class="answer-input"
+
+        id="answer-${item.id}"
+
+        placeholder="अपना Answer लिखें">
+
+
+        <br>
+
+
+        <button
+
+        class="submit-btn"
+
+        onclick="startTest(
+        '${item.id}',
+        ${data.time || 10}
+        )">
+
+        ▶ Start Test
+
+        </button>
+
+
+        <button
+
+        class="submit-btn"
+
+        onclick="submitTest(
+        '${item.id}',
+        '${encodeURIComponent(data.title || "")}',
+        '${encodeURIComponent(data.answer || "")}'
+        )">
+
+        ✅ Submit Answer
+
+        </button>
+
 
         </div>
 
@@ -857,439 +1154,473 @@ function displayTest(){
     });
 
 
-    html+=`
+    document
+    .getElementById("testsList")
+    .innerHTML =
 
-    <button type="button"
-    class="green"
-    onclick="submitTest()">
+    html ||
 
-    ✅ Submit Test
+    "अभी कोई Test उपलब्ध नहीं है।";
 
-    </button>
 
-    </form>
+});
 
-    `;
 
-    output.innerHTML=html;
+/* ======================================
+TEST TIMER STORAGE
+====================================== */
+
+let testTimers = {};
+
+
+/* ======================================
+START TEST
+====================================== */
+
+window.startTest =
+function(testId,minutes){
+
+
+    if(testTimers[testId]){
+
+        alert(
+        "Test पहले से शुरू है!"
+        );
+
+        return;
+
+    }
+
+
+    let seconds =
+    minutes * 60;
+
+
+    const timerElement =
+
+    document
+    .getElementById(
+    "timer-" + testId
+    );
+
+
+    timerElement.innerHTML =
+    "⏰ " +
+    formatTime(seconds);
+
+
+    testTimers[testId] =
+
+    setInterval(()=>{
+
+
+        seconds--;
+
+
+        timerElement.innerHTML =
+
+        "⏰ " +
+        formatTime(seconds);
+
+
+        if(seconds <= 0){
+
+
+            clearInterval(
+            testTimers[testId]
+            );
+
+
+            delete
+            testTimers[testId];
+
+
+            timerElement.innerHTML =
+            "⛔ Time Over";
+
+
+            alert(
+            "⏰ Test का समय समाप्त हो गया!"
+            );
+
+
+        }
+
+
+    },1000);
+
+
+};
+
+
+/* ======================================
+FORMAT TIME
+====================================== */
+
+function formatTime(seconds){
+
+
+    const minutes =
+
+    Math.floor(
+    seconds / 60
+    );
+
+
+    const remainingSeconds =
+
+    seconds % 60;
+
+
+    return
+
+    minutes
+    .toString()
+    .padStart(2,"0")
+
+    +
+
+    ":"
+
+    +
+
+    remainingSeconds
+    .toString()
+    .padStart(2,"0");
+
 
 }
 
 
-/* SUBMIT TEST */
+/* ======================================
+SUBMIT TEST
+====================================== */
 
-function submitTest(){
+window.submitTest =
+async function(
 
-    let score=0;
+testId,
+encodedTitle,
+encodedCorrectAnswer
 
-    let answers=[];
+){
 
 
-    questions.forEach(function(q,index){
+    if(!currentStudent){
 
-        let selected=document.querySelector(
+        alert(
+        "Student Login नहीं मिला!"
+        );
 
-            'input[name="question'+index+'"]:checked'
+        return;
+
+    }
+
+
+    const answerInput =
+
+    document
+    .getElementById(
+    "answer-" + testId
+    );
+
+
+    const studentAnswer =
+
+    answerInput
+    .value
+    .trim();
+
+
+    if(!studentAnswer){
+
+        alert(
+        "कृपया Answer लिखें!"
+        );
+
+        return;
+
+    }
+
+
+    const testTitle =
+
+    decodeURIComponent(
+    encodedTitle
+    );
+
+
+    const correctAnswer =
+
+    decodeURIComponent(
+    encodedCorrectAnswer
+    );
+
+
+    let score = 0;
+
+
+    if(
+
+        studentAnswer
+        .toLowerCase()
+        .trim()
+
+        ===
+
+        correctAnswer
+        .toLowerCase()
+        .trim()
+
+    ){
+
+        score = 1;
+
+    }
+
+
+    try{
+
+
+        /*
+        TIMER STOP
+        */
+
+        if(testTimers[testId]){
+
+            clearInterval(
+            testTimers[testId]
+            );
+
+            delete
+            testTimers[testId];
+
+        }
+
+
+        /*
+        SAVE SCORE
+        */
+
+        await addDoc(
+
+            collection(db,"scores"),
+
+            {
+
+                studentId:
+                currentStudent.uid,
+
+                studentName:
+
+                currentStudentData.name ||
+
+                currentStudent.email,
+
+
+                testId:testId,
+
+
+                testTitle:testTitle,
+
+
+                studentAnswer:
+                studentAnswer,
+
+
+                score:score,
+
+
+                total:1,
+
+
+                submittedAt:
+                serverTimestamp()
+
+            }
 
         );
 
 
-        let answer=selected ? selected.value : "";
+        if(score === 1){
+
+            alert(
+            "🎉 Correct Answer! आपका Score: 1/1"
+            );
+
+        }
+
+        else{
+
+            alert(
+            "❌ Answer गलत है। आपका Score: 0/1"
+            );
+
+        }
 
 
-        answers.push({
+        answerInput.value = "";
 
-            questionId:q.id,
 
-            selected:answer,
+    }
 
-            correct:q.answer
+
+    catch(error){
+
+        console.log(error);
+
+        alert(
+        "Error: " +
+        error.message
+        );
+
+    }
+
+
+};
+
+
+/* ======================================
+MY SCORES
+====================================== */
+
+function loadScores(){
+
+
+    onSnapshot(
+
+    collection(db,"scores"),
+
+    (snapshot)=>{
+
+
+        if(!currentStudent){
+
+            return;
+
+        }
+
+
+        let html = "";
+
+        let count = 0;
+
+
+        snapshot.forEach(item=>{
+
+
+            const data =
+            item.data();
+
+
+            if(
+
+                data.studentId ===
+                currentStudent.uid
+
+            ){
+
+
+                count++;
+
+
+                html += `
+
+                <div class="item">
+
+                <h3>
+
+                📝 ${data.testTitle || "Test"}
+
+                </h3>
+
+
+                <p>
+
+                📊 Score:
+
+                ${data.score || 0}
+
+                /
+
+                ${data.total || 1}
+
+                </p>
+
+
+                <p>
+
+                आपका Answer:
+
+                ${data.studentAnswer || ""}
+
+                </p>
+
+
+                </div>
+
+                `;
+
+            }
+
 
         });
 
 
-        if(answer===q.answer){
+        document
+        .getElementById("scoresList")
+        .innerHTML =
 
-            score++;
+        html ||
 
-        }
+        "आपने अभी कोई Test नहीं दिया है।";
+
+
+        document
+        .getElementById("scoreCount")
+        .innerHTML =
+        count;
+
 
     });
 
-
-    let percentage=Math.round(
-        (score/questions.length)*100
-    );
-
-
-    let scoreData={
-
-        id:Date.now(),
-
-        studentId:currentStudent.id,
-
-        studentName:currentStudent.name,
-
-        studentEmail:currentStudent.email,
-
-        score:score,
-
-        total:questions.length,
-
-        percentage:percentage,
-
-        date:new Date().toLocaleString(),
-
-        answers:answers
-
-    };
-
-
-    scores.push(scoreData);
-
-
-    localStorage.setItem(
-
-        "gspScores",
-
-        JSON.stringify(scores)
-
-    );
-
-
-    alert(
-
-        "🎉 Test Submit हो गया!\n\n" +
-
-        "Score: "+score+" / "+questions.length+
-
-        "\nPercentage: "+percentage+"%"
-
-    );
-
-
-    showSection("scores");
 
 }
 
 
-/* SCORES */
+/* ======================================
+LOGOUT
+====================================== */
 
-function displayScores(){
-
-    let output=document.getElementById("scoreList");
-
-
-    let myScores=scores.filter(function(item){
-
-        return item.studentId == currentStudent.id;
-
-    });
+window.logoutUser =
+async function(){
 
 
-    if(myScores.length===0){
+    if(
 
-        output.innerHTML='<div class="empty">आपने अभी कोई Test नहीं दिया है।</div>';
+        confirm(
+        "क्या आप Logout करना चाहते हैं?"
+        )
 
-        return;
+    ){
+
+
+        await signOut(auth);
+
+
+        window.location.href =
+        "login.html";
+
+
     }
 
 
-    let html="";
+};
 
-
-    myScores.slice().reverse().forEach(function(item){
-
-        html+=`
-
-        <div class="score-card">
-
-        <h3>📝 Test Result</h3>
-
-        <div class="score-number">
-
-        ${item.score} / ${item.total}
-
-        </div>
-
-        <p>
-
-        📊 Percentage:
-
-        <b>${item.percentage}%</b>
-
-        </p>
-
-        <small>
-
-        📅 ${item.date}
-
-        </small>
-
-        </div>
-
-        `;
-
-    });
-
-
-    output.innerHTML=html;
-
-}
-
-
-/* FREE NOTES */
-
-function displayNotes(){
-
-    let output=document.getElementById("notesList");
-
-
-    let myNotes=notes.filter(function(note){
-
-        return (
-
-            note.class===currentStudent.class ||
-
-            note.class==="All Classes"
-
-        );
-
-    });
-
-
-    if(myNotes.length===0){
-
-        output.innerHTML='<div class="empty">आपकी Class के लिए अभी कोई Notes नहीं है।</div>';
-
-        return;
-    }
-
-
-    let html="";
-
-
-    myNotes.forEach(function(note){
-
-        let linkButton="";
-
-
-        if(note.link){
-
-            linkButton=`
-
-            <br>
-
-            <a href="${note.link}"
-            target="_blank"
-            style="
-            display:inline-block;
-            background:#1559a8;
-            color:white;
-            padding:10px 16px;
-            border-radius:8px;
-            text-decoration:none;
-            margin-top:10px;
-            ">
-
-            📄 Open Notes / PDF
-
-            </a>
-
-            `;
-
-        }
-
-
-        html+=`
-
-        <div class="note">
-
-        <h3>📚 ${note.title}</h3>
-
-        <p>
-
-        <b>Subject:</b>
-        ${note.subject}
-
-        </p>
-
-        <p>
-
-        <b>Class:</b>
-        ${note.class}
-
-        </p>
-
-        <p>
-        ${note.content}
-        </p>
-
-        <small>
-
-        📅 Published:
-        ${note.date || ""}
-
-        </small>
-
-        ${linkButton}
-
-        </div>
-
-        `;
-
-    });
-
-
-    output.innerHTML=html;
-
-}
-
-
-/* TIMETABLE */
-
-function displayTimetable(){
-
-    let output=document.getElementById("timetableList");
-
-
-    let myTimetable=timetable.filter(function(item){
-
-        return item.class===currentStudent.class;
-
-    });
-
-
-    if(myTimetable.length===0){
-
-        output.innerHTML='<div class="empty">आपकी Class का Timetable अभी उपलब्ध नहीं है।</div>';
-
-        return;
-    }
-
-
-    let dayOrder={
-
-        Monday:1,
-        Tuesday:2,
-        Wednesday:3,
-        Thursday:4,
-        Friday:5,
-        Saturday:6,
-        Sunday:7
-
-    };
-
-
-    myTimetable.sort(function(a,b){
-
-        if(dayOrder[a.day]!==dayOrder[b.day]){
-
-            return dayOrder[a.day]-dayOrder[b.day];
-
-        }
-
-        return a.start.localeCompare(b.start);
-
-    });
-
-
-    let html="";
-
-
-    myTimetable.forEach(function(item){
-
-        html+=`
-
-        <div class="timetable-item">
-
-        <h3>📅 ${item.day}</h3>
-
-        <p>
-        🕐 ${item.start} - ${item.end}
-        </p>
-
-        <p>
-        📚 <b>${item.subject}</b>
-        </p>
-
-        ${item.teacher ?
-
-        `<p>
-        👨‍🏫 ${item.teacher}
-        </p>`
-
-        : ""
-
-        }
-
-        </div>
-
-        `;
-
-    });
-
-
-    output.innerHTML=html;
-
-}
-
-
-/* UPDATE STATS */
-
-function updateStats(){
-
-    document.getElementById("homeworkCount").innerHTML=
-        homework.length;
-
-    document.getElementById("noticeCount").innerHTML=
-        notices.length;
-
-
-    let myNotes=notes.filter(function(note){
-
-        return (
-
-            note.class===currentStudent.class ||
-
-            note.class==="All Classes"
-
-        );
-
-    });
-
-
-    document.getElementById("noteCount").innerHTML=
-        myNotes.length;
-
-    document.getElementById("testCount").innerHTML=
-        questions.length;
-
-}
-
-
-/* LOGOUT */
-
-function logout(){
-
-    localStorage.removeItem("currentStudent");
-
-    alert("आप सफलतापूर्वक Logout हो गए!");
-
-    window.location.href="teacher-login.html";
-
-}
-
-
-/* START */
-
-if(currentStudent){
-
-    updateStats();
-
-}
 
 </script>
 
+
 </body>
+
 </html>
