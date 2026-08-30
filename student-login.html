@@ -1,176 +1,531 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Login | Gyan Sagar Pathshala</title>
+<title>Student Login - Gyan Sagar Pathshala</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#071a35,#1559a8);
-  padding:20px;
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#155799,#159957);
+    padding:20px;
 }
 
 .login-box{
-  width:100%;
-  max-width:400px;
-  background:white;
-  padding:35px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,.3);
+    width:100%;
+    max-width:430px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
 }
 
-.icon{
-  font-size:60px;
+.logo{
+    text-align:center;
+    margin-bottom:28px;
 }
 
-h1{
-  color:#071a35;
+.logo .icon{
+    font-size:55px;
+}
+
+.logo h1{
+    margin:10px 0 5px;
+    color:#155799;
+    font-size:27px;
+}
+
+.logo p{
+    color:#666;
+    margin:0;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#333;
 }
 
 input{
-  width:100%;
-  padding:14px;
-  margin:10px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-size:16px;
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:9px;
+    font-size:16px;
 }
 
-button{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border:none;
-  border-radius:10px;
-  background:#ffc400;
-  color:#071a35;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
+input:focus{
+    outline:none;
+    border-color:#159957;
 }
 
-button:hover{
-  background:#ffad00;
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:9px;
+    background:#159957;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-#message{
-  margin-top:15px;
-  font-weight:bold;
+.login-btn:hover{
+    background:#117a45;
 }
 
-.back{
-  display:block;
-  margin-top:20px;
-  text-decoration:none;
-  color:#1559a8;
-  font-weight:bold;
+.login-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
 }
+
+.status{
+    display:none;
+    margin-top:18px;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+    line-height:1.5;
+}
+
+.status.error{
+    display:block;
+    background:#f8d7da;
+    color:#842029;
+}
+
+.status.success{
+    display:block;
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.status.loading{
+    display:block;
+    background:#cfe2ff;
+    color:#084298;
+}
+
+.back-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.back-link a{
+    color:#159957;
+    text-decoration:none;
+    font-weight:bold;
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="login-box">
 
-<div class="icon">🎓</div>
+    <div class="logo">
 
-<h1>Student Login</h1>
+        <div class="icon">🎓</div>
 
-<p>Gyan Sagar Pathshala</p>
+        <h1>Student Login</h1>
 
-<form onsubmit="studentLogin(event)">
+        <p>Gyan Sagar Pathshala</p>
 
-<input
-type="text"
-id="userId"
-placeholder="Enter User ID"
-required>
+    </div>
 
-<input
-type="password"
-id="password"
-placeholder="Enter Password"
-required>
 
-<button type="submit">
-🔐 Login करें
-</button>
+    <div class="form-group">
 
-</form>
+        <label>Student Email ID</label>
 
-<div id="message"></div>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter Student Email"
+            autocomplete="email">
 
-<a href="index.html" class="back">
-← वापस Website पर जाएँ
-</a>
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            autocomplete="current-password">
+
+    </div>
+
+
+    <button
+        class="login-btn"
+        id="loginButton">
+
+        🔐 Student Login
+
+    </button>
+
+
+    <div id="status" class="status"></div>
+
+
+    <div class="back-link">
+
+        <a href="index.html">
+
+            ← Back to Home
+
+        </a>
+
+    </div>
 
 </div>
 
 
-<script>
 
-function studentLogin(event){
+<script type="module">
 
-event.preventDefault();
+import {
+    auth,
+    db
+}
+from "./firebase-config.js";
 
-let userId=document.getElementById("userId").value.trim();
 
-let password=document.getElementById("password").value.trim();
+import {
+    signInWithEmailAndPassword,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-let students=
-JSON.parse(localStorage.getItem("gspStudents")) || [];
 
-let student=students.find(function(s){
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-return s.userId===userId &&
-       s.password===password;
+
+
+const emailInput =
+document.getElementById("email");
+
+
+const passwordInput =
+document.getElementById("password");
+
+
+const loginButton =
+document.getElementById("loginButton");
+
+
+const statusBox =
+document.getElementById("status");
+
+
+
+function showStatus(message,type){
+
+    statusBox.innerText =
+    message;
+
+    statusBox.className =
+    "status " + type;
+
+}
+
+
+
+loginButton.addEventListener(
+
+"click",
+
+async function(){
+
+
+    const email =
+    emailInput.value.trim();
+
+
+    const password =
+    passwordInput.value;
+
+
+
+    if(!email || !password){
+
+        showStatus(
+
+            "❌ Email और Password भरें!",
+
+            "error"
+
+        );
+
+        return;
+
+    }
+
+
+
+    loginButton.disabled = true;
+
+    loginButton.innerText =
+    "⏳ Logging in...";
+
+
+    showStatus(
+
+        "⏳ कृपया Wait करें...",
+
+        "loading"
+
+    );
+
+
+
+    try{
+
+
+        const credential =
+
+        await signInWithEmailAndPassword(
+
+            auth,
+
+            email,
+
+            password
+
+        );
+
+
+        const user =
+        credential.user;
+
+
+
+        const userRef =
+
+        doc(
+
+            db,
+
+            "users",
+
+            user.uid
+
+        );
+
+
+
+        const userSnap =
+
+        await getDoc(userRef);
+
+
+
+        if(!userSnap.exists()){
+
+
+            await signOut(auth);
+
+
+            showStatus(
+
+                "❌ Student Profile Firestore में नहीं मिला।",
+
+                "error"
+
+            );
+
+
+            return;
+
+        }
+
+
+
+        const userData =
+        userSnap.data();
+
+
+
+        if(userData.role !== "student"){
+
+
+            await signOut(auth);
+
+
+            showStatus(
+
+                "❌ यह Student Account नहीं है!",
+
+                "error"
+
+            );
+
+
+            return;
+
+        }
+
+
+
+        showStatus(
+
+            "✅ Student Login Successful!",
+
+            "success"
+
+        );
+
+
+
+        setTimeout(function(){
+
+
+            window.location.href =
+
+            "student-dashboard.html";
+
+
+        },700);
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        let message =
+        error.message;
+
+
+
+        if(
+
+            error.code ===
+
+            "auth/invalid-credential"
+
+        ){
+
+            message =
+
+            "❌ Email या Password गलत है।";
+
+        }
+
+
+
+        if(
+
+            error.code ===
+
+            "auth/invalid-email"
+
+        ){
+
+            message =
+
+            "❌ सही Email डालें।";
+
+        }
+
+
+
+        if(
+
+            error.code ===
+
+            "auth/too-many-requests"
+
+        ){
+
+            message =
+
+            "❌ बहुत ज्यादा कोशिश हुई। थोड़ी देर बाद कोशिश करें।";
+
+        }
+
+
+
+        showStatus(
+
+            message,
+
+            "error"
+
+        );
+
+
+    }
+
+
+    finally{
+
+
+        loginButton.disabled = false;
+
+
+        loginButton.innerText =
+
+        "🔐 Student Login";
+
+
+    }
+
 
 });
 
 
-if(student){
+passwordInput.addEventListener(
 
-localStorage.setItem(
-"currentStudent",
-JSON.stringify(student)
-);
+"keydown",
 
-document.getElementById("message").style.color="green";
+function(event){
 
-document.getElementById("message").innerHTML=
-"✅ Login सफल! Dashboard खुल रहा है...";
 
-setTimeout(function(){
+    if(event.key === "Enter"){
 
-window.location.href="student-dashboard.html";
 
-},800);
+        loginButton.click();
 
-}
 
-else{
+    }
 
-document.getElementById("message").style.color="red";
 
-document.getElementById("message").innerHTML=
-"❌ User ID या Password गलत है!";
-
-}
-
-}
+});
 
 </script>
 
