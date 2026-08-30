@@ -5,9 +5,12 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Login | Gyan Sagar Pathshala</title>
+<title>Login - Gyan Sagar Pathshala</title>
+
 
 <style>
 
@@ -19,33 +22,36 @@
 body{
 
     margin:0;
+
     min-height:100vh;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
 
-    background:
-    linear-gradient(135deg,#102640,#3264a3);
+    justify-content:center;
+
+    background:#eef2f7;
 
     padding:20px;
 
 }
 
 
-.login-box{
+.login-container{
 
     width:100%;
-    max-width:430px;
+
+    max-width:450px;
 
     background:white;
 
-    border-radius:22px;
+    padding:35px;
 
-    padding:40px 35px;
+    border-radius:18px;
 
     box-shadow:
-    0 15px 45px rgba(0,0,0,.25);
+    0 10px 30px rgba(0,0,0,.15);
 
 }
 
@@ -59,18 +65,11 @@ body{
 }
 
 
-.logo .icon{
-
-    font-size:55px;
-
-}
-
-
 .logo h1{
 
-    margin:8px 0;
+    margin:0;
 
-    color:#17385f;
+    color:#17375e;
 
     font-size:28px;
 
@@ -79,9 +78,9 @@ body{
 
 .logo p{
 
-    color:#68778a;
+    color:#666;
 
-    margin:0;
+    margin-top:8px;
 
 }
 
@@ -97,11 +96,11 @@ label{
 
     display:block;
 
-    font-weight:bold;
-
     margin-bottom:8px;
 
-    color:#263b55;
+    font-weight:bold;
+
+    color:#333;
 
 }
 
@@ -110,60 +109,22 @@ input{
 
     width:100%;
 
-    padding:15px;
+    padding:14px;
 
-    border:1px solid #ccd6e2;
+    border:1px solid #ccc;
 
-    border-radius:10px;
-
-    outline:none;
+    border-radius:8px;
 
     font-size:16px;
+
+    outline:none;
 
 }
 
 
 input:focus{
 
-    border-color:#3264a3;
-
-    box-shadow:
-    0 0 0 3px rgba(50,100,163,.12);
-
-}
-
-
-.password-box{
-
-    position:relative;
-
-}
-
-
-.password-box input{
-
-    padding-right:55px;
-
-}
-
-
-.show-password{
-
-    position:absolute;
-
-    right:12px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    border:none;
-
-    background:none;
-
-    cursor:pointer;
-
-    font-size:18px;
+    border-color:#245b9b;
 
 }
 
@@ -174,29 +135,24 @@ input:focus{
 
     border:none;
 
-    background:
-    linear-gradient(90deg,#17385f,#3264a3);
+    background:#245b9b;
 
     color:white;
 
     padding:15px;
 
-    border-radius:10px;
+    border-radius:8px;
 
     font-size:17px;
 
-    font-weight:bold;
-
     cursor:pointer;
-
-    margin-top:8px;
 
 }
 
 
 .login-btn:hover{
 
-    opacity:.9;
+    background:#173e6b;
 
 }
 
@@ -210,39 +166,50 @@ input:focus{
 }
 
 
-.message{
+.status{
+
+    display:none;
 
     margin-top:18px;
 
-    padding:12px;
+    padding:13px;
 
     border-radius:8px;
 
     text-align:center;
 
-    display:none;
+}
+
+
+.status.error{
+
+    display:block;
+
+    background:#f8d7da;
+
+    color:#842029;
 
 }
 
 
-.message.error{
+.status.success{
 
     display:block;
 
-    background:#ffe4e4;
+    background:#d1e7dd;
 
-    color:#b42318;
+    color:#0f5132;
 
 }
 
 
-.message.success{
+.status.loading{
 
     display:block;
 
-    background:#dff7e8;
+    background:#cfe2ff;
 
-    color:#137333;
+    color:#084298;
 
 }
 
@@ -251,28 +218,11 @@ input:focus{
 
     text-align:center;
 
-    margin-top:25px;
+    margin-top:22px;
 
-    color:#77869a;
+    color:#777;
 
     font-size:13px;
-
-}
-
-
-@media(max-width:500px){
-
-    .login-box{
-
-        padding:30px 22px;
-
-    }
-
-    .logo h1{
-
-        font-size:23px;
-
-    }
 
 }
 
@@ -284,135 +234,104 @@ input:focus{
 <body>
 
 
-<div class="login-box">
+<div class="login-container">
 
 
-    <div class="logo">
+<div class="logo">
 
-        <div class="icon">
-            📚
-        </div>
+<h1>📚 Gyan Sagar Pathshala</h1>
 
-        <h1>
-            Gyan Sagar Pathshala
-        </h1>
+<p>
+Teacher & Student Login Portal
+</p>
 
-        <p>
-            Teacher & Student Login Portal
-        </p>
+</div>
 
-    </div>
 
 
+<form id="loginForm">
 
-    <form id="loginForm">
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>Email ID</label>
 
-            <label>
-                📧 Email Address
-            </label>
+<input
 
-            <input
+type="email"
 
-                type="email"
+id="email"
 
-                id="email"
+placeholder="Enter your Email ID"
 
-                placeholder="Enter your email"
+autocomplete="email"
 
-                required
+required
 
-                autocomplete="email"
+>
 
-            >
+</div>
 
-        </div>
 
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>Password</label>
 
-            <label>
-                🔒 Password
-            </label>
+<input
 
+type="password"
 
-            <div class="password-box">
+id="password"
 
-                <input
+placeholder="Enter your Password"
 
-                    type="password"
+autocomplete="current-password"
 
-                    id="password"
+required
 
-                    placeholder="Enter your password"
+>
 
-                    required
+</div>
 
-                    autocomplete="current-password"
 
-                >
 
+<button
 
-                <button
+type="submit"
 
-                    type="button"
+class="login-btn"
 
-                    class="show-password"
+id="loginButton"
 
-                    onclick="togglePassword()"
+>
 
-                >
-                    👁️
-                </button>
+🔐 Login
 
+</button>
 
-            </div>
 
-        </div>
+</form>
 
 
 
-        <button
+<div
 
-            type="submit"
+id="loginStatus"
 
-            class="login-btn"
+class="status"
 
-            id="loginButton"
+>
 
-        >
+</div>
 
-            🔐 Login
 
-        </button>
 
+<div class="footer">
 
-    </form>
+© Gyan Sagar Pathshala
 
-
-
-    <div
-
-        id="message"
-
-        class="message"
-
-    ></div>
-
-
-
-    <div class="footer">
-
-        © 2026 Gyan Sagar Pathshala
-
-        <br><br>
-
-        एक ही Login से Teacher और Student दोनों प्रवेश कर सकते हैं।
-
-    </div>
+</div>
 
 
 </div>
@@ -422,14 +341,14 @@ input:focus{
 <script type="module">
 
 
-/* =====================================
+/* =========================================
 IMPORT FIREBASE CONFIG
-===================================== */
+========================================= */
 
 import {
 
-    auth,
-    db
+auth,
+db
 
 }
 
@@ -437,15 +356,15 @@ from "./firebase-config.js";
 
 
 
-/* =====================================
-FIREBASE AUTH IMPORTS
-===================================== */
+/* =========================================
+IMPORT FIREBASE AUTH
+========================================= */
 
 import {
 
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
 
 }
 
@@ -454,14 +373,14 @@ from
 
 
 
-/* =====================================
-FIRESTORE IMPORTS
-===================================== */
+/* =========================================
+IMPORT FIRESTORE
+========================================= */
 
 import {
 
-    doc,
-    getDoc
+doc,
+getDoc
 
 }
 
@@ -470,135 +389,196 @@ from
 
 
 
-/* =====================================
-ELEMENTS
-===================================== */
-
-const loginForm =
-document.getElementById("loginForm");
-
-
-const emailInput =
-document.getElementById("email");
-
-
-const passwordInput =
-document.getElementById("password");
-
-
-const loginButton =
-document.getElementById("loginButton");
-
-
-const messageBox =
-document.getElementById("message");
+let loginInProgress=false;
 
 
 
-/* =====================================
-SHOW MESSAGE
-===================================== */
+/* =========================================
+STATUS FUNCTION
+========================================= */
 
-function showMessage(
-    text,
-    type
-){
+function showStatus(message,type){
 
-    messageBox.innerText =
-    text;
+    const status=
+
+    document
+    .getElementById("loginStatus");
 
 
-    messageBox.className =
-    "message " + type;
+    status.innerText=message;
+
+
+    status.className=
+
+    "status "+type;
 
 }
 
 
 
-/* =====================================
-HIDE MESSAGE
-===================================== */
+/* =========================================
+OPEN CORRECT DASHBOARD
+========================================= */
 
-function hideMessage(){
+async function openDashboard(user){
 
-    messageBox.style.display =
-    "none";
+
+    try{
+
+
+        const userRef=
+
+        doc(
+            db,
+            "users",
+            user.uid
+        );
+
+
+        const userSnap=
+
+        await getDoc(
+            userRef
+        );
+
+
+        if(!userSnap.exists()){
+
+
+            showStatus(
+
+                "❌ आपका User Profile नहीं मिला। कृपया Admin/Teacher से संपर्क करें।",
+
+                "error"
+
+            );
+
+
+            return;
+
+        }
+
+
+        const userData=
+
+        userSnap.data();
+
+
+        const role=
+
+        userData.role;
+
+
+        if(role==="teacher"){
+
+            window.location.replace(
+                "teacher-dashboard.html"
+            );
+
+            return;
+
+        }
+
+
+        if(role==="student"){
+
+            window.location.replace(
+                "student-dashboard.html"
+            );
+
+            return;
+
+        }
+
+
+
+        showStatus(
+
+            "❌ Account Role सही नहीं है।",
+
+            "error"
+
+        );
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(
+            "Dashboard Error:",
+            error
+        );
+
+
+        showStatus(
+
+            "❌ Firebase Error: "+
+            error.message,
+
+            "error"
+
+        );
+
+
+    }
+
 
 }
 
 
 
-/* =====================================
-PASSWORD SHOW / HIDE
-===================================== */
-
-window.togglePassword =
-function(){
-
-    if(
-
-        passwordInput.type ===
-        "password"
-
-    ){
-
-        passwordInput.type =
-        "text";
-
-    }
-
-    else{
-
-        passwordInput.type =
-        "password";
-
-    }
-
-};
-
-
-
-/* =====================================
+/* =========================================
 LOGIN FORM
-===================================== */
+========================================= */
 
-loginForm.addEventListener(
+document
+.getElementById("loginForm")
+.addEventListener(
 
 "submit",
 
 async function(event){
 
+
     event.preventDefault();
 
 
-    hideMessage();
+    const email=
 
-
-    const email =
-
-    emailInput.value
+    document
+    .getElementById("email")
+    .value
     .trim();
 
 
-    const password =
+    const password=
 
-    passwordInput.value;
+    document
+    .getElementById("password")
+    .value;
 
 
-    if(
+    const loginButton=
 
-        !email ||
-        !password
+    document
+    .getElementById("loginButton");
 
-    ){
 
-        showMessage(
 
-            "कृपया Email और Password भरें।",
+    if(!email || !password){
+
+
+        showStatus(
+
+            "❌ Email और Password भरें।",
 
             "error"
 
         );
+
 
         return;
 
@@ -606,24 +586,32 @@ async function(event){
 
 
 
+    loginInProgress=true;
+
+
+    loginButton.disabled=true;
+
+
+    loginButton.innerText=
+
+    "⏳ Logging in...";
+
+
+
+    showStatus(
+
+        "⏳ Login किया जा रहा है...",
+
+        "loading"
+
+    );
+
+
+
     try{
 
 
-        loginButton.disabled =
-        true;
-
-
-        loginButton.innerText =
-        "⏳ Login हो रहा है...";
-
-
-
-        /* =============================
-        FIREBASE LOGIN
-        ============================= */
-
-
-        const userCredential =
+        const credential=
 
         await signInWithEmailAndPassword(
 
@@ -636,159 +624,20 @@ async function(event){
         );
 
 
-        const user =
+        showStatus(
 
-        userCredential.user;
-
-
-
-        /* =============================
-        GET USER PROFILE
-        ============================= */
-
-
-        const userRef =
-
-        doc(
-
-            db,
-
-            "users",
-
-            user.uid
-
-        );
-
-
-        const userSnap =
-
-        await getDoc(
-            userRef
-        );
-
-
-
-        /* =============================
-        PROFILE NOT FOUND
-        ============================= */
-
-
-        if(!userSnap.exists()){
-
-
-            await signOut(
-                auth
-            );
-
-
-            showMessage(
-
-                "❌ आपका User Profile नहीं मिला। कृपया Teacher से संपर्क करें।",
-
-                "error"
-
-            );
-
-
-            loginButton.disabled =
-            false;
-
-
-            loginButton.innerText =
-            "🔐 Login";
-
-
-            return;
-
-        }
-
-
-
-        const userData =
-
-        userSnap.data();
-
-
-
-        /* =============================
-        SUCCESS MESSAGE
-        ============================= */
-
-
-        showMessage(
-
-            "✅ Login सफल! कृपया प्रतीक्षा करें...",
+            "✅ Login Successful! Dashboard खोला जा रहा है...",
 
             "success"
 
         );
 
 
+        await openDashboard(
 
-        /* =============================
-        CHECK ROLE
-        ============================= */
+            credential.user
 
-
-        setTimeout(function(){
-
-
-            if(
-
-                userData.role ===
-                "teacher"
-
-            ){
-
-
-                window.location.href =
-                "teacher-dashboard.html";
-
-
-            }
-
-
-            else if(
-
-                userData.role ===
-                "student"
-
-            ){
-
-
-                window.location.href =
-                "student-dashboard.html";
-
-
-            }
-
-
-            else{
-
-
-                alert(
-
-                    "❌ इस Account का Role सही नहीं है!"
-
-                );
-
-
-                signOut(
-                    auth
-                );
-
-
-                loginButton.disabled =
-                false;
-
-
-                loginButton.innerText =
-                "🔐 Login";
-
-            }
-
-
-        },800);
+        );
 
 
     }
@@ -798,61 +647,27 @@ async function(event){
 
 
         console.error(
+            "Login Error:",
             error
         );
 
 
-        let errorMessage =
-        "Login Failed!";
+        let message=
+
+        error.message;
+
 
 
         if(
 
-            error.code ===
-            "auth/invalid-email"
+            error.code===
 
-        ){
-
-            errorMessage =
-            "❌ Email सही नहीं है।";
-
-        }
-
-
-        else if(
-
-            error.code ===
-            "auth/user-not-found"
-
-        ){
-
-            errorMessage =
-            "❌ यह Email registered नहीं है।";
-
-        }
-
-
-        else if(
-
-            error.code ===
-            "auth/wrong-password"
-
-        ){
-
-            errorMessage =
-            "❌ Password गलत है।";
-
-        }
-
-
-        else if(
-
-            error.code ===
             "auth/invalid-credential"
 
         ){
 
-            errorMessage =
+            message=
+
             "❌ Email या Password गलत है।";
 
         }
@@ -860,33 +675,89 @@ async function(event){
 
         else if(
 
-            error.code ===
-            "auth/too-many-requests"
+            error.code===
+
+            "auth/user-not-found"
 
         ){
 
-            errorMessage =
-            "❌ बहुत ज्यादा कोशिश हुई है। थोड़ी देर बाद प्रयास करें।";
+            message=
+
+            "❌ यह Email Registered नहीं है।";
 
         }
 
 
-        showMessage(
+        else if(
 
-            errorMessage,
+            error.code===
+
+            "auth/wrong-password"
+
+        ){
+
+            message=
+
+            "❌ Password गलत है।";
+
+        }
+
+
+        else if(
+
+            error.code===
+
+            "auth/invalid-email"
+
+        ){
+
+            message=
+
+            "❌ Email सही Format में लिखें।";
+
+        }
+
+
+        else if(
+
+            error.code===
+
+            "auth/too-many-requests"
+
+        ){
+
+            message=
+
+            "❌ बहुत बार गलत Login किया गया है। बाद में कोशिश करें।";
+
+        }
+
+
+
+        showStatus(
+
+            message,
 
             "error"
 
         );
 
 
-        loginButton.disabled =
-        false;
+    }
 
 
-        loginButton.innerText =
+    finally{
+
+
+        loginInProgress=false;
+
+
+        loginButton.disabled=false;
+
+
+        loginButton.innerText=
+
         "🔐 Login";
-
 
     }
 
@@ -894,9 +765,9 @@ async function(event){
 });
 
 
-/* =====================================
-ALREADY LOGGED-IN USER
-===================================== */
+/* =========================================
+CHECK EXISTING LOGIN SESSION
+========================================= */
 
 onAuthStateChanged(
 
@@ -905,88 +776,29 @@ auth,
 async function(user){
 
 
-    if(!user){
+    if(loginInProgress){
 
         return;
 
     }
 
 
-    try{
+    if(user){
 
 
-        const userSnap =
+        showStatus(
 
-        await getDoc(
+            "⏳ Existing Login Session Check किया जा रहा है...",
 
-            doc(
-
-                db,
-
-                "users",
-
-                user.uid
-
-            )
+            "loading"
 
         );
 
 
-        if(
-
-            !userSnap.exists()
-
-        ){
-
-            return;
-
-        }
-
-
-        const data =
-        userSnap.data();
-
-
-        /*
-        अगर Login Page खुला है और User
-        पहले से Login है तो सही Dashboard
-        पर भेजें।
-        */
-
-
-        if(
-
-            data.role ===
-            "teacher"
-
-        ){
-
-            window.location.href =
-            "teacher-dashboard.html";
-
-        }
-
-
-        else if(
-
-            data.role ===
-            "student"
-
-        ){
-
-            window.location.href =
-            "student-dashboard.html";
-
-        }
-
-
-    }
-
-    catch(error){
-
-        console.log(
-            error
+        await openDashboard(
+            user
         );
+
 
     }
 
